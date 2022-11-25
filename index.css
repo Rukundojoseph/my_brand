@@ -76,6 +76,15 @@ a{
     border-bottom-right-radius: 50px;
 
 }
+@media (max-width: 1000px){
+    .left_image,.home_image{
+        width: 200px;
+        float: unset;
+        margin: unset;
+        margin: auto;
+    }
+
+}
 /*image css*/
 /*image description*/
 .home_text{
@@ -93,7 +102,7 @@ a{
     font-family: 'Inter';
     font-style: normal;
 }
-.sub1,.sub_2{
+.sub_1,.sub_2{
     font-size: 2vw;
     padding-top: 3px;
 }
@@ -104,6 +113,21 @@ a{
 }
 .home_text div{
     margin-top: 10px;
+}
+@media (max-width: 1000px){
+    .home_text{
+       width: 70%;
+        float: unset;
+        margin: unset;
+        margin: auto;   
+           
+    }
+    .home_description{
+        font-size: 5vw;
+    }
+    .sub_1,.sub_2{
+        font-size: 5vw;
+    }
 }
 
 /*image description*/
