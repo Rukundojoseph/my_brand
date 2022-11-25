@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+}
+.home_heading{
+    color: #F3BE00;
+    font-size: 3vw;
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+}
+/* nav css*/
+.name1{
+     color: #F3BE00;   
+}
+.name2{
+        float: right;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    font-size: 2vw;
+    align-items: center;
+    margin: 10px;
+    font-weight: lighter;
+}
+nav{
+    width: 100%;
+    height: 64px;
+    top: 0;    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Inter';
+    font-style: normal;
+}
+.nav_link{
+    color: black;
+}
+.opened{
+    color: unset;
+    color: #F3BE00;
+}
+a{
+    text-decoration: none;
+}
+.links{
+    float: right;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.names_nav{
+    float: left;
+}
+@media (max-width: 1000px){
+    .links{
+        float: unset;
+        height: 45px;
+        width : 100%
+    }
+    .names_nav{
+        display: none;
+    }
+    a{
+        font-size: 3vw;
+    }
+}
+/* nav css*/
+/*image css*/
+.left_image{
+    margin-left: 5%;
+    margin-top: 10%;
+    background: #F3BE00;
+    border: 75px;
+    width: 400px;
+    height: fit-content;
+    float: left ;
+   border-radius: 50px ;
+}
+.home_image{
+    width:400px;        
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+}
+/*image css*/
+/*skill*/
+.skill{
+    width: 300px;
+    height: 150px;
+    font-family: 'Inter';
+    font-style: normal;
+    margin-left: 5px;
+}
+.skill_tick{
+    width: 30px;
+    height: 30px;
+}
+.skill_title_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: -10%;
+}
+.skill_title{
+    margin-left: 5px;
+}
+.skills{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 60%;
+    margin: 10 auto;
+    margin-left: 30%;
+}
+.skill_text{
+    width:90%;
+}
+@media (max-width: 1000px){
+    .skills{
+        margin-left: unset;
+        width: 100%;
+    }
+    .skill{
+        margin: auto;
+    }
+}
+
+/*skill*/
