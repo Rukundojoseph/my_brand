@@ -46,77 +46,97 @@ a{
     float: left;
 }
 @media (max-width: 1000px){
-    nav{
+    .links{
         float: unset;
         height: 45px;
-        width : 100%
+        width : 100%;      
+        
     }
     .names_nav{
         display: none;
     }
+    a{
+        font-size: 3vw;
+    }
 }
 /* nav css*/
 /*image css*/
-.right_image{
-    margin-right: 5%;
-    margin-top: 10%;
+.blog{
+    margin-left: 5%;
+    margin-top: 3%;
     background: #F3BE00;
     border: 75px;
-    width: fit-content;
+    width: 400px;
     height: fit-content;
-    float: right ;
+    float: left ;
    border-radius: 50px ;
 }
-.about_image{
-    width:300px;        
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-
+.blog_image{
+    width:400px;        
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 /*image css*/
 /*image description*/
-.home_text{
-    width: 50%;
-    float: right;   
-    margin-top: 2%; 
-    margin-right: 5%;
-    font-family: 'Inter';
-    font-style: normal;
-   
-}
 .home_heading{
     color: #F3BE00;
-    font-size: 5vw;
+    font-size: 3vw;
     font-family: 'Inter';
     font-style: normal;
+    text-align: center;
 }
-.sub_1{
-    font-size: 3vw;
+.sub1,.sub_2{
+    font-size: 2vw;
     padding-top: 3px;
 }
 .home_description{    
     width: 80%;
     font-size: 2vw; 
-
 }
 .home_text div{
     margin-top: 10px;
 }
 
-/*icons*/
-.icon{
-    width: 40px;
-    height: 40px;
+/*image description*/
+/*blog*/
+.blog{
+    font-family: 'Inter';
+    font-style: normal;
+    height: 400px;
 }
-.about_icons{
+.like_icon,.comment_icon{
+width: 20px;
+height: 20px;
+}
+.like_comment{
     display: flex;
     flex-direction: row;
-    width: 50%;
-    margin: 5%;
-    justify-content: space-evenly;
-    margin-top: 5%;
+    justify-content: space-between;
+    color: white;
+    margin: 5 20px;
+    margin-top: 10%;
 }
+.like_comment div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.blog_title{
+    width: 100%;
+    margin: 5px auto;
+    text-align: center;
+}
+.blog_description{
+    text-align: center;
+    width: 96%;
+}
+.blogs{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+/*blog*/
 
-/*icons*/
-
-/*image description*/
