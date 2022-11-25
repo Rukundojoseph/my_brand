@@ -46,13 +46,16 @@ a{
     float: left;
 }
 @media (max-width: 1000px){
-    nav{
+    .link{
         float: unset;
         height: 45px;
         width : 100%
     }
     .names_nav{
         display: none;
+    }
+    a{
+        font-size: 3vw;
     }
 }
 /* nav css*/
