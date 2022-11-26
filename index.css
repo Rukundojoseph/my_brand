@@ -46,7 +46,7 @@ a{
     float: left;
 }
 @media (max-width: 1000px){
-    .link{
+    .links{
         float: unset;
         height: 45px;
         width : 100%
@@ -127,6 +127,9 @@ a{
     }
     .sub_1,.sub_2{
         font-size: 5vw;
+    }
+    .home_heading{
+        font-size: 8vw;
     }
 }
 
