@@ -119,6 +119,20 @@ a{
     justify-content: space-evenly;
     margin-top: 5%;
 }
+@media (max-width: 1000px){
+    .home_text{
+        float: unset;
+        width: 90%;
+        margin: auto;
+    }
+    .home_description{
+        font-size: 4vw;
+    }
+    .icon{
+        width: 20px;
+        height: 20px;
+    }
+}
 
 /*icons*/
 
