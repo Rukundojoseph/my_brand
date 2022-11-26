@@ -133,12 +133,11 @@ margin: auto;
     border: none;
     outline: none;
     border-radius: 10px;
+    margin: 10px;
 
 }
 .fpassword{
-    float: right;   
-}
-.fpassword a{
+    float: right;
     color: #F3AF00;
 }
 /*login*/
@@ -146,7 +145,7 @@ margin: auto;
     margin-top: 5%;
 }
 @media (max-width: 1000px){
-.login_main{
-    width: 90%;
-}
+    .login_main{
+        width: 90%;
+    }
 }
