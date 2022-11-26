@@ -108,6 +108,7 @@ a{
 .contacts_form{
     width: 40%;
     float: right;
+margin-right: 5%;
 }
 .contact_f{
     width: 100%;    
@@ -123,6 +124,7 @@ a{
     outline: none;
 }
 .message_area{
+    margin-top: 0;
     width: 100%;
     height: 200px;
     border: none;
@@ -138,10 +140,13 @@ a{
     width: 100%;
     height: 50px;
     border: none;
-    border-radius: 20px;
-    font-size: 3vw;
+    border-radius: 10px;
+    font-size: 2vw;
     margin-top: 5%;
-   
+    font-weight: 300;   
+}
+.contacts_form p{
+    font-size: 1.5vw;
 }
 
 /*contact form*/
