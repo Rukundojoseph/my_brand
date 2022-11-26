@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+}
+/* nav css*/
+.name1{
+     color: #F3BE00;   
+}
+.name2{
+        float: right;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    font-size: 2vw;
+    align-items: center;
+    margin: 10px;
+    font-weight: lighter;
+}
+nav{
+    width: 100%;
+    height: 64px;
+    top: 0;    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Inter';
+    font-style: normal;
+}
+.nav_link{
+    color: black;
+}
+.opened{
+    color: unset;
+    color: #F3BE00;
+}
+a{
+    text-decoration: none;
+}
+.links{
+    float: right;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.names_nav{
+    float: left;
+}
+@media (max-width: 1000px){
+    .links{
+        float: unset;
+        height: 45px;
+        width : 100%;      
+        
+    }
+    .names_nav{
+        display: none;
+    }
+    a{
+        font-size: 3vw;
+    }
+}
+/* nav css*/
+/*image css*/
+.blog{
+    margin-left: 5%;
+    margin-top: 3%;
+    background: #F3BE00;
+    border: 75px;
+    width: 300px;
+    height: fit-content;
+    float: left ;
+   border-radius: 50px ;
+}
+.blog_image{
+    width:300px;        
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+/*image css*/
+/*image description*/
+.home_heading{
+    color: #F3BE00;
+    font-size: 3vw;
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+}
+.sub1,.sub_2{
+    font-size: 2vw;
+    padding-top: 3px;
+}
+.home_description{    
+    width: 80%;
+    font-size: 2vw; 
+}
+.home_text div{
+    margin-top: 10px;
+}
+
+/*image description*/
+/*blog*/
+.blog{
+    font-family: 'Inter';
+    font-style: normal;
+    height: 400px;
+    box-shadow: 20px 50px 30px rgba(0, 0, 0, 0.25);
+}
+.like_icon,.comment_icon{
+width: 20px;
+height: 20px;
+}
+.like_comment{
+text-align: center;   
+    margin: 5 20px;
+    margin-top: 10%;
+}
+.like_comment div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.blog_title{
+    width: 100%;
+    margin: 5px auto;
+    text-align: center;
+}
+.blog_description{
+    text-align: center;
+    width: 96%;
+    font-size: 2vw;
+    font-style: bold;
+}
+.blogs{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+/*blog*/
+.next{
+    color: black;
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+}
+.work12{
+    float: right;
+    color:#F3BE00;
+}
+@media (max-width: 1000px){
+    .blog{
+        width: 300px;
+    }
+    .blog_image{
+        width: 300px;
+    }
+    .blogs{
+        width: 100%;
+    }
+}
+
