@@ -146,4 +146,15 @@ height: 20px;
     font-style: normal;
     text-align: center;
 }
+@media (max-width: 1000px){
+    .blog{
+        width: 300px;
+    }
+    .blog_image{
+        width: 300px;
+    }
+    .blogs{
+        width: 100%;
+    }
+}
 
