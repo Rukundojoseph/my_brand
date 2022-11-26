@@ -145,10 +145,7 @@ text-align: center;
     font-style: normal;
     text-align: center;
 }
-.work12{
-    float: right;
-    color:#F3BE00;
-}
+
 @media (max-width: 1000px){
     .blog{
         width: 300px;

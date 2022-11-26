@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="admin.css">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <title>Document</title>
 </head>
@@ -14,19 +14,47 @@
     <h1 class="name1">Rukundo</h1>
     <h1 class="name2">Joseph</h1></div>   
     <div class="links">
-        <a href=""  class="nav_link opened">HOME</a>
-        <a href=""  class="nav_link">ABOUT</a>
-        <a href=""  class="nav_link">BLOGS</a>
-        <a href=""  class="nav_link">CONTACT</a>
-        <a href=""  class="nav_link">SKILLS</a>
-        <a href=""  class="nav_link">LOGIN</a>
-        <a href=""  class="nav_link">SIGNUP</a>
+        <a href=""  class="nav_link opened">ADMIN</a>
+        <a href=""  class="nav_link">HOME</a>
+        <a href=""  class="nav_link">SIGNOUT</a>
         </div>
     </nav>
+    <div class="second_nav">
+        <div class="top_profile">
+            <img src="/images/whiteprofile.png" alt="" class="icon">
+            <p>Rukundojoseph</p>
+        </div>
+        <div class="second_nav_pic"><h1>BLOGS</h1></div>
+    </div>
      <!--nav bar end-->
      <!--left image -->
      <section class="main">
-    
+        <div class="admin_main_top">
+<div class="blog_heading">BLOGS</div><button class="post_blog" id="add_post">POST</button></div>
+<div class="admin_add_post">
+    <form action="">
+        <h1 class="post_title">POST</h1>
+        <div>add_image</div>
+        <input type="file" class="" id="image_input">
+        <div>caption</div>
+        <input type="text" id="blog_caption"/>
+        <div class="submit_cancel">
+        <button type="submit" class="blog_submit">submit</button>
+        <button class="cancel_btn" id="cancel" >CANCEL</button>
+    </div>
+    </form>
+
+</div>
+<div class="admin_table">
+    <table class="table_t" id="table">
+        <tr><td>post</td><td>date</td><td>likes</td><td>comments</td><td>update</td></tr>
+
+    </table>
+
+</div>
+
+
+
      </section>
     
 </body>
