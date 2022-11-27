@@ -32,14 +32,15 @@
             </div>
             <div class="line"></div>
             
-            <form class="login_form">
+            <form class="login_form" onsubmit="signup()">
                 <div class="login_section"><div class="input_title"><b>Email</b></div>
                 <input type="text" id="username" class="input_t"  required placeholder="example@gmail.com"/></div>
                 <div class="login_section"><div class="input_title"><b>password</b></div>
                 <input type="password" id="password" class="input_t"  required  placeholder="password"/></div>
                 <div class="login_section"><div class="input_title"><b>confirm password</b></div>
-                <input type="password" id="password" class="input_t"  required  placeholder="confirm password"/></div>
+                <input type="password" id="password2" class="input_t"  required  placeholder="confirm password"/></div>
                     <div><button type="submit" id="login" class="login_submit">SIGNUP</button></div>
+                    <div id="result"></div>
                     
 
 
@@ -50,6 +51,6 @@
 
     
      </section>
-    
+    <script src="/signup.js"></script>
 </body>
 </html>

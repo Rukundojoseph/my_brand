@@ -59,6 +59,7 @@ a{
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 5%;
 }
 @media (max-width: 1000px){
     .links{
