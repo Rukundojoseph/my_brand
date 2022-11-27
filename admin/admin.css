@@ -162,3 +162,7 @@ float: right;
     color: #F3BE00;
     text-align: center;
 }
+.delete_cancel{
+    display: flex;
+    flex-direction: row;
+}
