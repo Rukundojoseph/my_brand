@@ -15,8 +15,8 @@
     <h1 class="name2">Joseph</h1></div>   
     <div class="links">
         <a href="/admin/admin.html"  class="nav_link opened">ADMIN</a>
-        <a href="/index.html"  class="nav_link">HOME</a>
-        <a href=""  class="nav_link">SIGNOUT</a>
+        <a href="/blogs/blog.html"  class="nav_link">HOME</a>
+        <a href="/signin/signin.html"  class="nav_link">SIGNOUT</a>
         </div>
     </nav>
     <div class="second_nav">
@@ -31,9 +31,11 @@
      <section class="main">
         <div class="admin_main_top">
 <div class="blog_heading">BLOGS</div><button class="post_blog" id="add_post">POST</button></div>
-<div class="admin_add_post">
-    <form action="">
+<div class="admin_add_post" id="post_section">
+    <form action="" onsubmit="addblog()">
         <h1 class="post_title">POST</h1>
+        <div>Title</div>
+        <input type="text" id="blog_title"/>
         <div>add_image</div>
         <input type="file" class="" id="image_input">
         <div>caption</div>
@@ -56,6 +58,7 @@
 
 
      </section>
-    
+     <script src="admin.js"></script>    
+     <script src="/main.js"></script>
 </body>
 </html>

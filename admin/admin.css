@@ -65,9 +65,13 @@ a{
 /*image description*/
 
 table td{
-    padding: 0 50px;
+    padding: 0 5%;
 
 }
+table{
+    width: 100%;
+}
+
 /*image description*/
 .second_nav{
     width: 20%;
@@ -132,6 +136,7 @@ outline: none;
 }
 .admin_table{
     float: right;
+    width: 60%;
 }
 .post_blog{
     color: white;

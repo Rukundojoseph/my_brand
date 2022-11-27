@@ -1,5 +1,5 @@
 
-
+//sign up funciton
 function signup(e){
     event.preventDefault();
 var Username= document.querySelector("#username").value
@@ -20,11 +20,12 @@ result.innerHTML= `signed up`
 
 
 }
+// sign in function
 function signin(e){
     event.preventDefault();
     var Username=document.querySelector("#username").value
     var Password=document.querySelector("#password").value
-    var userac=document.querySelector("#user_check").value
+    var checkac=document.getElementsByName("checkb")
     var adminac=document.querySelector("#admin_check").value
     var result=document.querySelector("#result")
 
@@ -32,7 +33,8 @@ function signin(e){
     var data=JSON.parse(user);
     console.log(data)
     console.log(Password,Username)    
-    console.log(data.username,data.password)      
+    console.log(data.username,data.password)     
+     
     if(Username==null){
       result.innerHTML= `wrong email`
           }
@@ -43,11 +45,12 @@ function signin(e){
           {
             result.innerHTML= `loged in succsesfuly`
             console.log("loged in")
-            if (adminac=="admin"){
+            console.log(checkac.value)
+            if (checkac[1].checked){
             window.location.href = "/admin/admin.html"
             }
             else{
-             window.location.href = "/index.html" 
+             window.location.href = "/blogs/blog.html" 
               console.log(adminac)           
             }
           }
@@ -55,6 +58,22 @@ function signin(e){
             result.innerHTML= `incorrect username or password`
             
           }
+}
+function addblog(e){
+  event.preventDefault();
+  var blogcaption=document.querySelector("#blog_caption").value
+  var blog_image=document.querySelector("#image_input").value
+  var blog_title=document.querySelector("#blog_title").value
+console.log(blog_title,blogcaption)
 
+var old=localStorage.getItem("blogs");
+var oldblogs=JSON.parse(old);
+  var blog = [{
+    "title": blog_title,
+    "caption": blogcaption
+  },oldblogs]
+   json=JSON.stringify(blog)
+   localStorage.setItem("blogs",json) 
 
 }
+//post blog codes
