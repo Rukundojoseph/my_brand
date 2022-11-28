@@ -141,6 +141,11 @@ margin: auto;
 .fpassword a{
     color: #F3AF00;
 }
+#result{
+    margin-top: 10%;
+    font-size: 1vw;
+    text-align: center;
+}
 /*login*/
 .main{
     margin-top: 5%;

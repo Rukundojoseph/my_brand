@@ -27,7 +27,7 @@ var blogs =JSON.parse(lblogs)
 console.log(blogs)
 blogs.forEach(element => {       
   var bdate ="11/27/2022"
-        Btable.innerHTML+=` <tr><td>${element.title}</td><td>${bdate}</td><td>0</td><td>0</td><td><img src="/images/edit.png" class="icon"/><div class="delete_cancel"><img src="/images/delete.png" class="icon"/></div></td></tr>`    
+        Btable.innerHTML+=` <tr><td>${element.title}</td><td>${bdate}</td><td>0</td><td>0</td><td><div class="delete_cancel"><img src="/images/edit.png" class="icon"/><img src="/images/delete.png" class="icon"/></div></td></tr>`    
 });
 
 })

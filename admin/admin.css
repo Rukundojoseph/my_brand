@@ -166,3 +166,8 @@ float: right;
     display: flex;
     flex-direction: row;
 }
+@media (max-width:  1000px){
+    nav{
+        width: 80%;
+    }
+}
