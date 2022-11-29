@@ -11,13 +11,17 @@ var Password2= document.querySelector("#password2").value
         "password": Password,
         "passwordconfirm": Password2
     }
+    if ( localStorage.getItem(Username)==null ){
     json= JSON.stringify(user);
     localStorage.setItem(Username,json)    
 console.log("submitted")
 console.log(user)
 result.innerHTML= `signed up`
+    }
+    else{
+      result.innerHTML= `username is already taken`
 
-
+    }
 
 }
 // sign in function
@@ -43,6 +47,7 @@ function signin(e){
           }
           else if ((Username == data.username) && (Password == data.password))
           {
+            localStorage.setItem("signedin",data.username)
             result.innerHTML= `loged in succsesfuly`
             console.log("loged in")
             console.log(checkac.value)
@@ -59,32 +64,4 @@ function signin(e){
             
           }
 }
-function addblog(e){
-  event.preventDefault();
-  var blogcaption=document.querySelector("#blog_caption").value
-  var blog_image=document.querySelector("#image_input").value
-  var blog_title=document.querySelector("#blog_title").value
-console.log(blog_title,blogcaption)
 
-var old=localStorage.getItem("blogs");
-var oldblogs=JSON.parse(old);
-if (oldblogs != null){
-  var blog = [{
-    "title": blog_title,
-    "caption": blogcaption
-  },oldblogs]
-}
-else{
-  var blog={
-    "title": blog_title,
-    "caption": blogcaption
-  }
-}
-   json=JSON.stringify(blog)
-   localStorage.setItem("blogs",json)  
-   
-  
- 
-
-}
-//post blog codes
