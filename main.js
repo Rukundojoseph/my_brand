@@ -68,12 +68,23 @@ console.log(blog_title,blogcaption)
 
 var old=localStorage.getItem("blogs");
 var oldblogs=JSON.parse(old);
+if (oldblogs != null){
   var blog = [{
     "title": blog_title,
     "caption": blogcaption
   },oldblogs]
+}
+else{
+  var blog={
+    "title": blog_title,
+    "caption": blogcaption
+  }
+}
    json=JSON.stringify(blog)
-   localStorage.setItem("blogs",json) 
+   localStorage.setItem("blogs",json)  
+   
+  
+ 
 
 }
 //post blog codes

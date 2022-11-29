@@ -14,14 +14,14 @@
     <h1 class="name1">Rukundo</h1>
     <h1 class="name2">Joseph</h1></div>   
     <div class="links">
-        <a href="https://rukundojoseph.github.io/my_brand/admin/admin.html"  class="nav_link opened">ADMIN</a>
-        <a href="https://rukundojoseph.github.io/my_brand/blogs/blog.html"  class="nav_link">HOME</a>
-        <a href="https://rukundojoseph.github.io/my_brand/signin/signin.html"  class="nav_link">SIGNOUT</a>
+        <a href="/admin/admin.html"  class="nav_link opened">ADMIN</a>
+        <a href="/blogs/blog.html"  class="nav_link">HOME</a>
+        <a href="/signin/signin.html"  class="nav_link">SIGNOUT</a>
         </div>
     </nav>
     <div class="second_nav">
         <div class="top_profile">
-            <img src="https://rukundojoseph.github.io/my_brand/images/whiteprofile.png" alt="" class="icon">
+            <img src="/images/whiteprofile.png" alt="" class="icon">
             <p>Rukundojoseph</p>
         </div>
         <div class="second_nav_pic"><h1>BLOGS</h1></div>
@@ -31,15 +31,16 @@
      <section class="main">
         <div class="admin_main_top">
 <div class="blog_heading">BLOGS</div><button class="post_blog" id="add_post">POST</button></div>
+<section class="fullpage_bpost">
 <div class="admin_add_post" id="post_section">
     <form action="" onsubmit="addblog()">
         <h1 class="post_title">POST</h1>
         <div>Title</div>
-        <input type="text" id="blog_title"/>
+        <input type="text" id="blog_title" required/>
         <div>add_image</div>
         <input type="file" class="" id="image_input">
         <div>caption</div>
-        <input type="text" id="blog_caption"/>
+        <input type="text" id="blog_caption" required/>
         <div class="submit_cancel">
         <button type="submit" class="blog_submit">submit</button>
         <button class="cancel_btn" id="cancel" >CANCEL</button>
@@ -47,6 +48,7 @@
     </form>
 
 </div>
+</section>
 <div class="admin_table">
     <table class="table_t" id="table">
         <tr><td>post</td><td>date</td><td>likes</td><td>comments</td><td>update</td></tr>
@@ -58,7 +60,7 @@
 
 
      </section>
-     <script src="./admin.js"></script>    
-     <script src="https://rukundojoseph.github.io/my_brand/main.js"></script>
+     <script src="admin.js"></script>    
+     <script src="/main.js"></script>
 </body>
 </html>

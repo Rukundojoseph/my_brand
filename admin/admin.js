@@ -1,6 +1,8 @@
 var  POSTB=document.querySelector("#add_post");
-var posttab=document.querySelector(".admin_add_post")
+var posttab=document.querySelector(".fullpage_bpost")
 var Btable=document.querySelector("#table")
+var Cancel=document.querySelector("#cancel")
+
 var count=0
 
 POSTB.addEventListener('click', ()=>{   
@@ -11,8 +13,12 @@ if (count==0){
 else{
     posttab.classList.remove("press_post")
     count=0;
-
 }
+})
+Cancel.addEventListener('click',()=>{
+    posttab.classList.remove("press_post")
+    count=0;
+
 })
 window.addEventListener('load',()=>{
     var blog=localStorage.getItem("blogs");
@@ -29,5 +35,5 @@ blogs.forEach(element => {
   var bdate ="11/27/2022"
         Btable.innerHTML+=` <tr><td>${element.title}</td><td>${bdate}</td><td>0</td><td>0</td><td><div class="delete_cancel"><img src="/images/edit.png" class="icon"/><img src="/images/delete.png" class="icon"/></div></td></tr>`    
 });
-
+localStorage.removeItem("blogs")
 })
