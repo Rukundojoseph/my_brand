@@ -24,8 +24,4 @@ blogs.forEach(element => {
 else{
     window.location.href="/signin/signin.html"
 }
-
-
-
-
 })

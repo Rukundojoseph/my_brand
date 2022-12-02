@@ -1,7 +1,7 @@
 var blog_view= document.querySelector(".whole_page_view")
 var blog_exit= document.querySelector("#quit_blog")
 var profile= document.querySelector("#cprofile")
-
+var blogadmin= document.querySelector("#user_blog")
 function  blogclick(){
     blog_view.classList.add('blog_click')  
 console.log("working")
@@ -11,11 +11,6 @@ blog_exit.addEventListener('click',()=>{
 
 })
 
-function addlike(){
-    if (localStorage.getItem("signedin")==null){
-        window.location.href="/signin/signin.html"
-    }
-}
 
 var blogdiv= document.querySelector(".blogs")
 window.addEventListener('load',()=>{
@@ -55,16 +50,38 @@ function blogclick(id){
     document.querySelector(`#likes`).innerHTML=`<div id="like_${index} onclick="likeload(this.id)"></div>`   
  
 }
+var count=0;
 
-function likeload(id){    
-    alert(id)
-    let blogindex=id.split("_")
-    var index = blogindex[1];    
-    var liked= JSON.parse(localStorage.getItem(`likes_${index}`))
-    document.querySelector(`#${id}`).innerHTML= liked.length;
+
+function addlike2(){
+    if ((localStorage.getItem("signedin") != null)&& (count<2)  ){
+    var currentlikes=document.querySelector(`#likesn`).innerHTML;
+    console.log(currentlikes)
+    var newlikes=parseInt(currentlikes)+1
+    document.querySelector(`#likesn`).innerHTML=newlikes
+    count++
+    }
+    else{
+        windows.location.href="/signin/signin.html"
+    }
+ 
  }
 
-
-document.querySelector("#user_blog").addEventListener("click",()=>{
-    window.location.href="/myblogs/myblogs.html"
+ function addcomment(){
+    var coment_vid=document.querySelector("#comments_print");
+    var coment= document.querySelector("#comment").value;
+    var user = localStorage.getItem("signedin")
+    coment_vid.innerHTML+=` <div class="comment">
+    <div class="comment_profile">
+        <img src="/images/yellowprofle.png" class="profile icon" alt=""><p>${user}</p>
+    </div>
+    <p>${coment}<p></div>`
+ }
+blogadmin.addEventListener("click",()=>{
+    if (localStorage.getItem("signedin") != null ){
+        window.location.href="/myblogs/myblogs.html"
+    }
+    else{
+        window.location.href="/signin/signin.html/"
+    }
 })
