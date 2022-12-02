@@ -157,4 +157,8 @@ text-align: center;
         width: 100%;
     }
 }
+.names_nav{
+    float: left;
+    margin-left: 2%;
 
+}

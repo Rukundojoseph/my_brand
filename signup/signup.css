@@ -23,6 +23,7 @@ nav{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: 'Inter';
     font-style: normal;
+    position: fixed;
 }
 .nav_link{
     color: black;
@@ -149,3 +150,25 @@ margin: auto;
         width: 90%;
     }
 }
+.signup{
+    margin: 10% auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 1vw;
+    width: 100%;
+}
+.invalid{
+    font-size: 1vw;
+    color: red;
+    
+}
+    .main{
+        margin-top: 84px;
+    }
+    .names_nav{
+        float: left;
+        margin-left: 2%;
+    
+    }

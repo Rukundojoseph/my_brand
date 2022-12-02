@@ -27,6 +27,8 @@ nav{
     font-family: 'Inter';
     font-style: normal;
     background: white;
+    position: fixed;
+    top: 0;
 }
 .nav_link{
     color: black;
@@ -188,4 +190,12 @@ margin-right: 5%;
 .message_area{
     height: 150px;
 }
+}
+.main{
+    margin-top: 84px;
+}
+.names_nav{
+    float: left;
+    margin-left: 2%;
+
 }

@@ -19,29 +19,26 @@
         <a href="/blogs/blog.html"  class="nav_link">BLOGS</a>
         <a href="/contact/contact.html"  class="nav_link">CONTACT</a>
         <a href="/skills/skills.html"  class="nav_link">SKILLS</a>
-        <a href="/signin/signin.html"  class="nav_link ">LOGIN</a>
-        <a href="/signup/signup.html"  class="nav_link opened">SIGNUP</a>
+        <a href="" id="account"  class="nav_link opened">ACCOUNT</a>        
         </div>
     </nav>
      <!--nav bar end-->
      <!--left image -->
      <section class="main">
         <div class="login_main">
-            <div class="login_title"><b>SIGNUP</b>
-                
+            <div class="login_title"><b>SIGNUP</b>                
             </div>
-            <div class="line"></div>
-            
+            <div class="line"></div>            
             <form class="login_form" onsubmit="signup()">
                 <div class="login_section"><div class="input_title"><b>Email</b></div>
-                <input type="text" id="username" class="input_t"  required placeholder="example@gmail.com"/></div>
+                <input type="email" id="username" class="input_t"  required placeholder="example@gmail.com"/></div>
                 <div class="login_section"><div class="input_title"><b>password</b></div>
-                <input type="password" id="password" class="input_t"  required  placeholder="password"/></div>
+                <input type="password" pattern="([a-z]{4,6}[0-9]{2,4})" onchange="checkpassword()" id="password"   class="input_t"  required  placeholder="password"/></div>
                 <div class="login_section"><div class="input_title"><b>confirm password</b></div>
-                <input type="password" id="password2" class="input_t"  required  placeholder="confirm password"/></div>
+                <input type="password" onchange="checkmatch()" id="password2" class="input_t"  required  placeholder="confirm password"/></div>
                     <div><button type="submit" id="login" class="login_submit">SIGNUP</button></div>
                     <div id="result"></div>
-                    
+                    <div class="signup"><span>Already have and account?</span><a href="/signin/signin.html">signin</a></div>                    
 
 
 
@@ -52,5 +49,6 @@
     
      </section>
     <script src="/main.js"></script>
+    <script src="signup.js"></script>
 </body>
 </html>

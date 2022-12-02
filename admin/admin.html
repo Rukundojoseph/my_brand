@@ -15,8 +15,7 @@
     <h1 class="name2">Joseph</h1></div>   
     <div class="links">
         <a href="/admin/admin.html"  class="nav_link opened">ADMIN</a>
-        <a href="/blogs/blog.html"  class="nav_link">HOME</a>
-        <a href="/signin/signin.html" id="sout"  class="nav_link">SIGNOUT</a>
+        <a href="/blogs/blog.html"  class="nav_link">HOME</a>        
         </div>
     </nav>
     <div class="second_nav">
@@ -24,7 +23,10 @@
             <img src="/images/whiteprofile.png" alt="" class="icon">
             <p id="admin_name">Rukundojoseph</p>
         </div>
-        <div class="second_nav_pic"><h1>BLOGS</h1></div>
+        <div class="second_nav_links">
+        <div class="second_nav_pic" href="/admin/admin.html"><h1>blogs</h1></div>        
+        </div>
+
     </div>
      <!--nav bar end-->
      <!--left image -->
@@ -38,29 +40,41 @@
         <div>Title</div>
         <input type="text" id="blog_title" required/>
         <div>add_image</div>
-        <input type="file" class="" id="image_input">
+        <input type="file" class="" id="image-input">
         <div>caption</div>
         <input type="text" id="blog_caption" required/>
         <div class="submit_cancel">
-        <button type="submit" class="blog_submit">submit</button>
-        <button class="cancel_btn" id="cancel" >CANCEL</button>
+        <button type="submit" class="blog_submit">post</button>
+        <button class="cancel_btn" id="edit_cancel" >cancel</button>
     </div>
     </form>
 
 </div>
 </section>
 <div class="admin_table">
-    <table class="table_t" id="table">
-        <tr><td>post</td><td>date</td><td>likes</td><td>comments</td><td>update</td></tr>
-
-    </table>
-
+    <div class="table_t" id="blog_show">
+    </div>
 </div>
 
-
-
      </section>
+ <section class="edit_blog">
+    <div class="edit_form" >
+        <form action="" onsubmit="editblog()">
+            <h1 class="post_title">Edit</h1>
+            <div>Title</div>
+            <input type="text" id="edit_title" required/>            
+            <div>caption</div>
+            <input type="text" width="200" height="200" id="edit_caption" required/>
+            <div class="edit_submit_cancel">
+            <button type="submit" class="blog_submit" id="sub_edit">Edit</button>
+            <button class="cancel_btn" id="edit_cancel" >cancel</button>
+        </div>
+    </div>
+ </section>
+     
      <script src="admin.js"></script>    
-     <script src="/main.js"></script>
+     <script src="edit.js"></script>    
+
+     
 </body>
 </html>

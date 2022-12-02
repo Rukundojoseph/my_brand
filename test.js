@@ -1,10 +1,17 @@
-const image_input = document.querySelector("#image-input");
+const blogimage = document.querySelector("#image-input");
 
-image_input.addEventListener("change", function() {
+blogimage.addEventListener("change", function() {
   const reader = new FileReader();
-  reader.addEventListener("load", () => {
+   reader.addEventListener("load", () => {
     const uploaded_image = reader.result;
-    document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
-  });
-  reader.readAsDataURL(this.files[0]);
+   var url=uploaded_image
+   console.log(url)
+        document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+  return url
+      }
+      )
+      ;
+  reader.readAsDataURL(this.files[0]);  
+
 });
+

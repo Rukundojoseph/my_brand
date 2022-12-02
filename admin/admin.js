@@ -1,13 +1,11 @@
 var  POSTB=document.querySelector("#add_post");
 var posttab=document.querySelector(".fullpage_bpost")
-var Btable=document.querySelector("#table")
+var Btable=document.querySelector("#blog_show")
 var username=document.querySelector("#admin_name")
-var signout=document.querySelector("#sout")
-var count=0
-signout.addEventListener('click',()=>{
-    localStorage.removeItem("signedin")
-})
+var cancel= document.querySelector("#cancel")
 
+var user=localStorage.getItem("signedin")
+var count=0
 POSTB.addEventListener('click', ()=>{   
 if (count==0){
     posttab.classList.add("press_post")
@@ -17,7 +15,9 @@ else{
     posttab.classList.remove("press_post")
     count=0;
 }
-
+cancel.addEventListener("click",()=>{
+    posttab.classList.remove("press_post")
+})
 })
 window.addEventListener('load',()=>{    
    var signedinuser=localStorage.getItem("signedin")
@@ -25,44 +25,96 @@ window.addEventListener('load',()=>{
     for (let i = 0; i < localStorage.length; i++)   {
         console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
     }
- var lblogs=localStorage.getItem("blogs")
+
+ 
+if (localStorage.getItem("blogs") != null ){
+    var lblogs=localStorage.getItem("blogs")
 var blogs =JSON.parse(lblogs)
 console.log(blogs)
-if (localStorage.getItem("blogs") != null ){
+blogs.forEach(element => {           
+    var index=(blogs.indexOf(element))
+    console.log(index)
+         Btable.innerHTML+=`<div class="blogdc">
+         <div><h1>Blog title:</h1>${element.title}</div>
+         <div class="blog_d"><h1>Blog caption:</h1><p>${element.caption}</p></div>
+         <div><h1 class="bimage">BLOG IMAGE</h1><img src="${element.blogimages}" width="200" height="150"/></div>
+         <div class="delc"><lable>Edit<img id="edit_${index}" onclick="editblog(this.id)" src="/images/edit.png" class="icon"/></lable><lable>delete<img id="blog_${index}" onclick="deletebg(this.id)" src="/images/delete.png" class="icon"/></label></div>
+         <div><h1>CREATOR:</h1>${element.owner}</div>
+         </div>`
+           
+  console.log(element.blogimages)
+        });
 }
-localStorage.removeItem("blogs")
-
+//localStorage.removeItem("blogs")
 })
-
-
 function addblog(e){
     event.preventDefault();
     var blogcaption=document.querySelector("#blog_caption").value
-  //  var blog_image=document.querySelector("#image_input").value
+    //var blogimage=document.querySelector("#image_input")
     var blog_title=document.querySelector("#blog_title").value
-    var blog ={
+    if(localStorage.getItem("blogs")==null){
+     var  blogarr=localStorage.getItem("blogs") || []
+    }
+    else{    
+    var  blogarr=JSON.parse(localStorage.getItem("blogs")) || []
+    } 
+     var url=localStorage.getItem("imageurl")
+    localStorage.removeItem("imageurl")             
+      var blog ={
         "title": blog_title,
-        "caption": blogcaption
+        "caption": blogcaption,
+        "blogimages": url,
+        "owner": user,
       }
-    if (localStorage.getItem("blogs")==null){
-  console.log(blog_title,blogcaption)       
-     json=JSON.stringify(blog)
-     localStorage.setItem("blogs",json) 
-}
-else{
-    var old=localStorage.getItem("blogs")
-    var old_blogs=JSON.parse(old)
-    new_blog=[old_blogs,blog]    
-    localStorage.setItem("blogs",JSON.stringify(new_blog))
-    console.log(new_blog)
-    console.log(blog)
-}
-}
+   
+        blogarr.push(blog)
+        newblog=JSON.stringify(blogarr)
+        localStorage.setItem("blogs",newblog);
+        posttab.classList.remove("press_post")
+        if ( (localStorage.getItem("signedin")) == "rkndjoseph@gmail.com" ){
+          window.location.href="/blog/blogs.html"    
+      
+          }
+          else{
+          window.location.href="/myblogs/myblogs.html"   
+          }  
 
-  
-  
-  //post blog codes
-/*blogs.forEach(element => {       
-  var bdate ="11/27/2022"
-       Btable.innerHTML+=` <tr><td>${element.title}</td><td>${bdate}</td><td>0</td><td>0</td><td><div class="delete_cancel"><img src="/images/edit.png" class="icon"/><img src="/images/delete.png" class="icon"/></div></td></tr>`    
-});*/
+}
+const blogimage = document.querySelector("#image-input");
+
+
+blogimage.addEventListener("change", function() {
+  const reader = new FileReader();
+   reader.addEventListener("load", () => {
+    const uploaded_image = reader.result;
+   var url=uploaded_image
+   nurl=url
+   console.log(url);
+   localStorage.setItem("imageurl",url)
+  return url
+      })
+      ;
+  reader.readAsDataURL(this.files[0]);  
+});
+
+function deletebg(id){
+    let blogindex=id.split("_")
+    var index= blogindex[1]; 
+    total=JSON.parse(localStorage.getItem("blogs"));
+    total.splice(index,1)
+    var newblogs= JSON.stringify(total)
+    localStorage.setItem("blogs",newblogs)
+    if ( (localStorage.getItem("signedin")) == "rkndjoseph@gmail.com" ){
+    window.location.href="/blog/blogs.html"    
+
+    }
+    else{
+    window.location.href="/myblogs/myblogs.html"   
+    } 
+}
+  function editblog(id){
+    let blogindex=id.split("_")
+    var index= blogindex[1]; 
+    total=JSON.parse(localStorage.getItem("blogs"));
+    total.splice(index,1)
+  }

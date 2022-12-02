@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="myblogs.css">    
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+     <!--making nav bar-->
+<nav>
+    <div class="names_nav">
+    <h1 class="name1">Rukundo</h1>
+    <h1 class="name2">Joseph</h1></div>   
+    <div class="links">
+        
+        <a href="/index.html"  class="nav_link ">HOME</a>
+        <a href="/about/about.html"  class="nav_link">ABOUT</a>
+        <a href="/blogs/blog.html"  class="nav_link opened">BLOGS</a>
+        <a href="/contact/contact.html"  class="nav_link">CONTACT</a>
+        <a href="/skills/skills.html"  class="nav_link">SKILLS</a>
+        <a href="" id="account"  class="nav_link"></a>
+        </div>
+    </nav>
+  <button class="post_blog" id="add_post">POST</button></div>
+  
+    <section class="fullpage_bpost">
+        <div class="admin_add_post" id="post_section">
+            <form action="" onsubmit="addblog()">
+                <h1 class="post_title">POST</h1>
+                <div>Title</div>
+                <input type="text" id="blog_title" required/>
+                <div>add_image</div>
+                <input type="file" class="" id="image-input">
+                <div>caption</div>
+                <input type="text" id="blog_caption" required/>
+                <div class="submit_cancel">
+                <button type="submit" class="blog_submit">post</button>
+                <button class="cancel_btn" id="cancel" >cancel</button>
+            </div>
+            </form>
+        
+        </div>
+        </section>
+        <div id="personal_blogs" >              
+        
+        </div>
+          
+        <div class="edit_blog">
+            <div class="edit_form" >
+                <form action="" onsubmit="editblog()">
+                    <h1 class="post_title">Edit</h1>
+                    <div>Title</div>
+                    <input type="text" id="edit_title" required/>            
+                    <div>caption</div>
+                    <input type="text" width="200" height="200" id="edit_caption" required/>
+                    <div class="edit_submit_cancel">
+                    <button type="submit" class="blog_submit" id="sub_edit">Edit</button>
+                    <button class="cancel_btn" id="edit_cancel" >cancel</button>
+                </div>
+            </div>
+         </section>
+
+
+    <script src="blogs.js"></script>
+    <script src="/main.js"></script>
+    <script src="myblogs.js"></script>
+    <script src="/admin/admin.js"></script>
+    <script src="/admin/edit.js"></script>
+</body>
+</html>

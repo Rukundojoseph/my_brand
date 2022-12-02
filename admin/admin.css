@@ -85,7 +85,7 @@ table{
     flex-direction: row;
     align-items: center;
     color: white;
-    font-size: 2vw;
+    font-size: 1vw;
 }
 .second_nav_pic{
     margin-top: 10px;
@@ -170,12 +170,61 @@ float: right;
     color: #F3BE00;
     text-align: center;
 }
-.delete_cancel{
-    display: flex;
-    flex-direction: row;
-}
+
 @media (max-width:  1000px){
     nav{
         width: 80%;
     }
 }
+.blogdc{
+margin-top: 5%;
+background-color: #F3EEEE;
+border-radius: 20px ;
+padding: 20px;
+}
+.delc{       
+    float: right;
+    display: flex;
+    flex-direction: row;
+    width: 40%; 
+    z-index: 100;    
+    justify-content: space-between;
+}
+.delc label{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
+}
+/*edit form */
+.edit_blog{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.25);
+    top: 50;
+    width: 100%;
+    height: 100%;    
+    display: none;
+}
+.edit_form{
+    width: 40%;
+    margin: 10% auto;
+    background: #F3EEEE;
+    padding: 5%;
+    border-radius: 20px;
+}
+.edit_form input{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+#edit_caption{
+    height: 60px;
+    overflow: scroll;
+    margin-bottom: 5%;
+}
+.press_edit{
+    display: unset;
+}
+/*edit form */

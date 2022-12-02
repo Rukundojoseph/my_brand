@@ -19,48 +19,18 @@
         <a href="/blogs/blog.html"  class="nav_link opened">BLOGS</a>
         <a href="/contact/contact.html"  class="nav_link">CONTACT</a>
         <a href="/skills/skills.html"  class="nav_link">SKILLS</a>
-        <a href="/signin/signin.html"  class="nav_link">LOGIN</a>
-        <a href="/signup/signup.html"  class="nav_link">SIGNUP</a>
+        <a href="" id="account"  class="nav_link"></a>
         </div>
     </nav>
+    <button class="post_blog" id="add_post">POST</button>
      <!--nav bar end-->
      <!--left image -->
-     <div><h1 class="home_heading">Blogs</h1></div>
+     <div><h1 class="home_heading"></h1></div>
 
      <section class="main">
+        <button  id="user_blog" class="user_blog">Myblogs </button>
         <div class="blogs">
-        <!--blog1-->
-     <div class="blog">
-        <img src="/images/blog1.PNG" class="blog_image" />
-        <div class="blog_text" onclick="blogclick()">
-            <h1 class="blog_title"  >WEB DESIGN</h1>
-            <p class="blog_description">
-            Lauren Olson, February 28 2022 You’re flipping through your Instagram feed, killing time in line at the grocery store, and suddenly you’re doing double takes. Your attention is snagged by a series of incredib...
-        </p></div>
-        <div class="like_comment">
-<div class="blog_like"><img src="/images/like.png" class="like_icon"><p class="blog_number" id="likes">40</p></div>
-<div class="blog_comment"><img onclick="blogclick()" src="/images/comment.png" class="comment_icon"><p class="blog_number" id="comments">10</p></div>
 
-
-        </div>
-             </div>
-        <!--blog1-->
-              <!--blog2-->
-     <div class="blog">
-        <img src="/images/blog2.PNG" class="blog_image" />
-        <div class="blog_text">
-            <h1 class="blog_title" onclick="blogclick()">WEB DESIGN</h1>
-            <p class="blog_description">
-            Lauren Olson, February 28 2022 You’re flipping through your Instagram feed, killing time in line at the grocery store, and suddenly you’re doing double takes. Your attention is snagged by a series of incredib...
-        </p></div>
-        <div class="like_comment">
-<div class="blog_like"><img src="/images/like.png" class="like_icon"><p class="blog_number" id="likes">40</p></div>
-<div class="blog_comment"><img src="/images/comment.png" class="comment_icon"><p class="blog_number" id="comments">10</p></div>
-
-
-        </div>
-             </div>
-        <!--blog2-->
         
         </div>
        
@@ -71,19 +41,19 @@
         <!--1 blog view whole page-->
         <div class="blog_view">
         <div class="left_blog_side">
-            <div class="blog_view_header">Web design</div>
-            <img class="big_blog_img" src="/images/blog1.PNG" id="bi">
+            <div id="b_title" class="blog_view_header">Web design</div>
+            <img class="big_blog_img" id="b_image" src="/images/blog1.PNG" >
             <!--commet and like add section-->
             <div class="like_and_comment">
-              <div class="like_div"><img src="/images/yellowlike.png" class="icon" alt="" id="likes" />likes<h3 id="likesn">54</h3></div>
+              <div class="like_div"><img src="/images/yellow like.png" onclick="addlike()" class="icon like" alt="" id="likes" />likes<h3 id="likesn" onclick="likeload()">54</h3></div>
                 <div class="comment_in"> <input type="text" class="view_comment_input" id="comment" placeholder="Comment...."><img src="/images/postb.png" class="icon commenti"></div>
             <!--commet and like add section-->            
             </div>
         </div>
         <div class="right_blog_d">
-            
+            <div class="profile_bdiv"><img src="/images/yellowprofle.png" class="icon" alt=""><h2 id="on_user">user1</h2></div>            
             <!--blog full description-->
-        <div class="blog_view_d"><div class="sub_head"><b>Digital composite images</b></div>A composite combines two (or more) photographs to create one - rather convincing - final image. This is rendered significantly less complicated thanks to the advent of digital photography, digital editing, and an ever expanding set of features and tools available with modern software and apps.This photographic sorcery didn’t start with the advent of Photoshop - in fact, quite the opposite. Before digital photography was even a twinkle in Steven Sasson’s eye, composite </div>
+        <div class="blog_view_d"><div  class="sub_head" ><b id="b_title2">Digital composite images</b><div id="b_description" ></div></div></div>
             <!--blog full description-->        
             <div class="blog_comments">
             <div class="home_heading"> Comments</div>
@@ -105,10 +75,11 @@
         </div>
         </div>
         <!--1 blog view whole page -->
-</section>
+</section>     
      
-     <a  href="" onclick="blogclick()"><h1 class="next">Next</h1></a>
 
-    <script src="/blogs/blogs.js"></script>
+    <script src="blogs.js"></script>
+    <script src="/main.js"></script>
+    <script src="addlc.js"></script>
 </body>
 </html>
