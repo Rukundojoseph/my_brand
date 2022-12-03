@@ -5,25 +5,52 @@ function signup(e){
 var Username= document.querySelector("#username").value
 var Password= document.querySelector("#password").value
 var Password2= document.querySelector("#password2").value
-if (Password==Password2){
-    var user={
+if (Password==Password2){   
+
+    if ( localStorage.getItem("Users")==null){
+      localStorage.setItem("Users","[]");
+      //get the local storage items 
+     var userid = JSON.parse(localStorage.getItem("Users")).length;
+      var user={
+        "userid":  userid,
         "username": Username,
         "password": Password,
         "passwordconfirm": Password2
     }
-    if ( localStorage.getItem(Username)==null ){
-    json= JSON.stringify(user);
-    localStorage.setItem(Username,json)   
-    window.location.href ="/blogs/blog.html";
-
-console.log("submitted")
-console.log(user)
-result.innerHTML= `signed up`
-    }
+    var newuser=JSON.parse(localStorage.getItem("Users"));    
+    newuser.push(user);
+    localStorage.setItem("Users",(JSON.stringify(newuser)))   
+    window.location.href ="/blogs/blog.html";     
+    result.innerHTML= `signed up`
+    } 
     else{
-      result.innerHTML= `you already have an account <a href=/signin/signin.html>Signin</a>`
-    }
+     var userid = JSON.parse(localStorage.getItem("Users"));     
+     console.log(userid)
+
+    var newuser=JSON.parse(localStorage.getItem("Users")); 
+    var user={
+      "userid":  userid,
+      "username": Username,
+      "password": Password,
+      "passwordconfirm": Password2
+  }   
+  var olduser=newuser.forEach(element => {
+    if (element.username==Username){
+      return element;       
+    }    
+  });
+  if (olduser==null){
+  newuser.push(json);
+  localStorage.setItem("Users",(JSON.stringify(newuser)));
+  window.location.href ="/blogs/blog.html";     
+  result.innerHTML= `signed up`
+  }
+  else{
+    result.innerHTML= `you already have an account <a href=/signin/signin.html>Signin</a>`
     result.classList.remove("invalid");
+  }     
+   }      
+    
   }
   else{
     result.innerHTML= `your password should match`
@@ -37,45 +64,46 @@ function signin(e){
     var Password=document.querySelector("#password").value
     var checkac=document.getElementsByName("checkb")
         var result=document.querySelector("#result")
-
-    var user=localStorage.getItem(Username)
-    var data=JSON.parse(user);
+       
+    var data=JSON.parse(localStorage.getItem("Users"));
     console.log(data)
-    console.log(Password,Username)    
+    var useraccount = ""
+    data.forEach(element=> {
+      if(element.username==Username){
+        useraccount=element
+      }
+    })
+    console.log("useracount:",useraccount)
+    console.log(useraccount.username, Username)
+    console.log(useraccount.password, Password)
 
-    if(Username==null){
-      result.innerHTML= `wrong email`
-          }
-          else if (Password==null){
-            result.innerHTML= `wrong password`
-          }
-          else if ((Username == data.username) && (Password == data.password))
+          result.innerHTML= `Add Email`;      
+           if ((Username == useraccount.username) && (Password == useraccount.password))
           {
-            localStorage.setItem("signedin",data.username)
+            localStorage.setItem("signedin", `${Username}`)
             result.innerHTML= `loged in succsesfuly`
             console.log("loged in")
             console.log(checkac.value)
-            if (data.username="rkndjoseph@gmail.com"){
-            window.location.href ="/admin/admin.html";
+            if (useraccount.username=="rkndjoseph@gmail.com"){
+            window.location.href ="/admin/admin.html";            
+          
            
             }            
             else{
-              localStorage.setItem("signedin",data.username)
+              localStorage.setItem("signedin",`${useraccount.username}`)
              window.location.href = "/blogs/blog.html"                        
             }
           }
+          else if (useraccount==null){
+              result.innerHTML= `you have no account <a href=/signup/signup.html>Create accounts</a>`;
+          }
           else{
-            result.innerHTML= `incorrect username or password`            
+            result.innerHTML= `incorrect password`            
           }
 }
 
 function signout(){
   localStorage.removeItem("signedin")  
-}
-
-function log(){
- var logdiv=document.querySelector("#account_list")
- logdiv.classList.add("visiblec")
 }
  
 window.addEventListener("load",()=>{

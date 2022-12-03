@@ -2,16 +2,12 @@ var blog_view= document.querySelector(".whole_page_view")
 var blog_exit= document.querySelector("#quit_blog")
 var profile= document.querySelector("#cprofile")
 var blogadmin= document.querySelector("#user_blog")
-function  blogclick(){
-    blog_view.classList.add('blog_click')  
-console.log("working")
-}
+
+
 blog_exit.addEventListener('click',()=>{
     blog_view.classList.remove('blog_click')
 
 })
-
-
 var blogdiv= document.querySelector(".blogs")
 window.addEventListener('load',()=>{
  var blogpage_blogs =JSON.parse(localStorage.getItem("blogs")) 
@@ -36,6 +32,7 @@ blogpage_blogs.forEach(element => {
 })
 
 function blogclick(id){
+    blog_view.classList.add('blog_click')      
     let blogindex=id.split("_")
     var index= blogindex[1]; 
     var allblogs=JSON.parse(localStorage.getItem("blogs"));   
@@ -46,15 +43,69 @@ function blogclick(id){
     document.querySelector("#b_title").innerHTML=singleblog.title;
     document.querySelector("#b_title2").innerHTML=singleblog.title;
     document.querySelector("#on_user").innerHTML=singleblog.owner;
-    document.querySelector("#b_description").innerHTML=singleblog.caption;        
-    document.querySelector(`#likes`).innerHTML=`<div id="like_${index} onclick="likeload(this.id)"></div>`   
- 
+    document.querySelector("#b_description").innerHTML=singleblog.caption;   
+   var nlikes = likesnumber(index);
+    document.querySelector(`.like_div`).innerHTML=`<img id="like_${index}" src="/images/yellow like.png" onclick="likethis(this.id)"class="icon like" alt="" id="likes" /><p id="likesn" >${nlikes}</p>`  
+
+console.log(`like_${index}`)
+}
+//working on likes
+function likethis(id){
+    var newindex=id.split("_")
+    var ind=newindex[1]    
+  if(localStorage.getItem("likes") == null){
+    localStorage.setItem("likes","[]")
+   var signedinuser=(localStorage.getItem("signedin"))
+    var like={
+        "liker": signedinuser,
+        "blogid": ind,          
+    }
+    var alllikes=JSON.parse(localStorage.getItem("likes"))
+    console.log(alllikes.indexOf(like))
+    if (alllikes.indexOf(like) == -1){        
+   //alllikes.push(like)
+    }
+    else{
+       var remove= alllikes.indexOf(like)
+        alllikes.splice(remove,1)
+    }
+   var uploadlike=JSON.stringify(alllikes)
+  //  localStorage.setItem("likes",uploadlike)
+    
+  }  
+  else{
+    var signedinuser=(localStorage.getItem("signedin"))
+    var like={
+        "liker": signedinuser,
+        "blogid": ind,           
+    }
+    var alllikes=JSON.parse(localStorage.getItem("likes"))
+   alllikes.push(like)
+   var uploadlike=JSON.stringify(alllikes)
+    localStorage.setItem("likes",uploadlike)
+  }
+  blogclick(`fullpg_${ind}`)
+}
+//likes function
+function likesnumber(id){          
+    likes=JSON.parse(localStorage.getItem("likes"))
+    if (likes != null){
+    var bloglikes=[];
+    likes.forEach(element=>{
+        if(element.blogid==id)
+        bloglikes.push(element)
+    })
+          return bloglikes.length
+}
+else{
+    return 0;
+}
+        //document.querySelector(`#${id}`).innerHTML= bloglikes.length;
+   
 }
 var count=0;
-
-
-function addlike2(){
-    if ((localStorage.getItem("signedin") != null)&& (count<2)  ){
+function addlike2(id){
+    if ((localStorage.getItem("signedin") != null)&& (count<1)  ){
     var currentlikes=document.querySelector(`#likesn`).innerHTML;
     console.log(currentlikes)
     var newlikes=parseInt(currentlikes)+1
@@ -62,10 +113,12 @@ function addlike2(){
     count++
     }
     else{
-        windows.location.href="/signin/signin.html"
+        window.location.href="/signin/signin.html"
     }
  
  }
+
+
 
  function addcomment(){
     var coment_vid=document.querySelector("#comments_print");
@@ -82,6 +135,6 @@ blogadmin.addEventListener("click",()=>{
         window.location.href="/myblogs/myblogs.html"
     }
     else{
-        window.location.href="/signin/signin.html/"
+        window.location.href="/signin/signin.html"
     }
 })

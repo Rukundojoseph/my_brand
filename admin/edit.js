@@ -3,18 +3,29 @@ var edit=document.querySelector(".edit_blog")
 function editblog(id){
     edit.classList.add("press_edit"); 
 var title=document.querySelector("#edit_title")
-var caption=document.querySelector("#edit_caption")   
- let blogindex=id.split("_")
-    var index= blogindex[1]; 
+var caption=document.querySelector("#edit_caption")    
+// new code
+let blogid=id.split("_")
+var index= blogid[1]; 
+var total=JSON.parse(localStorage.getItem("blogs"));
+ var blog=""
+ total.forEach(element =>{
+   if (element.id==index){
+    blog=element
+   }
+  })
+
+  var blogindex= total.indexOf(blog) 
+// new code
+    
     var allblogs=JSON.parse(localStorage.getItem("blogs"));   
- var total=allblogs[index];
+ var total=allblogs[blogindex];
     //if (total.owner==(localStorage.getItem("signedin"))){
     title.value=total.title;
     caption.value=total.caption    
     var owner= total.owner
     var clickE=document.querySelector("#sub_edit")
-    clickE.addEventListener("click",()=>{       
-    
+    clickE.addEventListener("click",()=>{           
 var newtitle=document.querySelector("#edit_title").value
 var newcaption=document.querySelector("#edit_caption").value
   /*var  blog={

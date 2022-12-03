@@ -1,7 +1,13 @@
 var main= document.querySelector("#personal_blogs")
-
 window.addEventListener("load",()=>{
-var blogs=JSON.parse(localStorage.getItem("blogs"))
+    if (localStorage.getItem("blogs") == null ){
+        localStorage.setItem("blogs","[]")
+   var blogs=JSON.parse(localStorage.getItem("blogs"))
+
+    }
+    else{
+    var blogs=JSON.parse(localStorage.getItem("blogs"))
+    }
 var personalblogs=[]
 var user= localStorage.getItem("signedin")
 if (user!=null){
@@ -17,7 +23,6 @@ blogs.forEach(element => {
         <div class="delc"><lable>Edit<img id="edit_${index}" onclick="editblog(this.id)" src="/images/edit.png" class="icon"/></lable><lable>delete<img id="blog_${index}" onclick="deletebg(this.id)" src="/images/delete.png" class="icon"/></label></div>
         <div><h1>CREATOR:</h1>${element.owner}</div>
         </div>`
-
     }    
 }); 
 }
