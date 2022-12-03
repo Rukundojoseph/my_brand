@@ -1,5 +1,6 @@
 *{
     margin: 0;
+   
 }
 /* nav css*/
 .name1{
@@ -133,6 +134,7 @@ height: 20px;
     width: 100%;
     margin: 5px auto;
     text-align: center;
+    cursor: pointer;
 }
 .blog_description{
     text-align: center;
@@ -189,6 +191,8 @@ height: 20px;
     background: rgba(0, 0, 0, 0.25);
     top: 0;
     left: 0;
+    font-family: 'inter';
+
    display: none;
  
 }
@@ -210,7 +214,8 @@ height: 20px;
 .right_blog_d{
     top: 0;  
     width: 40%;
-    position: relative;
+    position: absolute;
+    right: 50px;
     background: white; 
     overflow: scroll;
     border-radius: 10px;
@@ -218,23 +223,25 @@ height: 20px;
     height: 100%;
 
 }
-.left_blog_side{
-    background:#F3EEEE ;
+.left_blog_side{    
     border-radius: 20px;
+    position: relative;
+    right: 200px;
 }
 .blog_view_d{
-    height: 50%;
+    height: fit-content;
     width: 90%;
     margin: 5px auto;
-    font-family: 'Inter';
-    
-   
+    font-family: 'Inter';   
+    max-height: 40%;
+    overflow: scroll;
         
 }
 .comment_in{
     display: flex;
     flex-direction: row;
     align-items: center;    
+    margin-bottom: 5px;
 }
 .view_comment_input{
     width: 90%;
@@ -244,7 +251,8 @@ height: 20px;
     border-radius: 10px ;
 }
 .comment{
-width: 100%;
+width: 80%;
+margin: 2px auto;
 height: fit-content;
 padding: 5px;
 background-color: whitesmoke;
@@ -264,7 +272,7 @@ margin-top: 2px;
 }
 .comment_div{
    width: 80%;
-   margin: 20px auto;
+   margin: 10px auto;
 }
 .like_and_comment{
     background-color: #F3EEEE;
@@ -294,8 +302,8 @@ margin-top: 2px;
     border-radius: 50%;    
 }
 .blog_view_header{
-    font-size: 3vw;
-    text-align: center;
+    font-size: 2vw;
+    text-align: left;
     color:#F3BE00;
 }
 .commenti{
@@ -407,6 +415,8 @@ height: 40%;
     
 }
 .comment_div{
-    height: 150px;
+    width: 90%;
+    height: fit-content;
+    max-height: 50%;
     overflow: scroll;
 }

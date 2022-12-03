@@ -4,6 +4,7 @@ var profile= document.querySelector("#cprofile")
 var blogadmin= document.querySelector("#user_blog")
 
 
+
 blog_exit.addEventListener('click',()=>{
     blog_view.classList.remove('blog_click')
 
@@ -27,6 +28,9 @@ blogpage_blogs.forEach(element => {
 <div class="blog_comment"><img id="comment_${index}" src="/images/comment.png" class="comment_icon"><p class="blog_number" id="comments"></p></div>
         </div>
              </div>`
+
+
+          
         
 });    
 })
@@ -40,12 +44,27 @@ function blogclick(id){
     var mainview=document.querySelector(".whole_page_view")
     mainview.classList.add("blog_click")
     document.querySelector("#b_image").src=`${singleblog.blogimages}`;
-    document.querySelector("#b_title").innerHTML=singleblog.title;
+    document.querySelector("#b_title").innerHTML=(singleblog.title).toUpperCase();
     document.querySelector("#b_title2").innerHTML=singleblog.title;
     document.querySelector("#on_user").innerHTML=singleblog.owner;
-    document.querySelector("#b_description").innerHTML=singleblog.caption;   
+    document.querySelector("#b_description").innerHTML=singleblog.caption;
+    // comment button
+    document.querySelector("#c_button").innerHTML=`<img id="comment_${index}" src="/images/postb.png" onclick="addcomment(this.id)" class="icon commenti">`
+    
+    //comment button   
    var nlikes = likesnumber(index);
     document.querySelector(`.like_div`).innerHTML=`<img id="like_${index}" src="/images/yellow like.png" onclick="likethis(this.id)"class="icon like" alt="" id="likes" /><p id="likesn" >${nlikes}</p>`  
+    var comments = loadcomments(index)   
+    var coment_vid=document.querySelector("#comments_print");
+    comments.forEach(element => {
+    coment_vid.innerHTML+=`<div class="comment">
+    <div class="comment_profile">
+        <img src="/images/yellowprofle.png" class="profile icon" alt=""><p>${element.commenter}</p>
+    </div>
+    <p>${element.comment}<p></div>`
+    
+   });
+ 
 
 console.log(`like_${index}`)
 }
@@ -119,7 +138,7 @@ function loadcomments(id){
         var blogcomments=[];
         comments.forEach(element=>{
             if(element.blogid==id)
-            bloglikes.push(element)
+            blogcomments.push(element)
         })
        // console.log(bloglikes)
               return blogcomments    
@@ -127,19 +146,37 @@ function loadcomments(id){
 }
 //function return comments
 
-
-
-
-function addcomment(){
-    var coment_vid=document.querySelector("#comments_print");
+//add comments function done
+function addcomment(id){
+    var index=id.split("_")
+    var ind =index[1];
     var coment= document.querySelector("#comment").value;
-    var user = localStorage.getItem("signedin")
-    coment_vid.innerHTML+=` <div class="comment">
-    <div class="comment_profile">
-        <img src="/images/yellowprofle.png" class="profile icon" alt=""><p>${user}</p>
-    </div>
-    <p>${coment}<p></div>`
+    var signedinuser = localStorage.getItem("signedin")
+    var comment={
+        "commenter": signedinuser,
+        "blogid": ind,    
+        "comment": coment      
+    }
+    var oldcom=JSON.parse(localStorage.getItem("comments"))
+    if (oldcom == null){
+        localStorage.setItem("comments","[]")
+       var newcomts=JSON.parse(localStorage.getItem("comments"))
+       newcomts.push(comment)
+       var uploadcomt =JSON.stringify(newcomts);
+       localStorage.setItem("comments",uploadcomt)
+    }
+    else{
+        var newcomts=JSON.parse(localStorage.getItem("comments"))
+        newcomts.push(comment)
+        var uploadcomt =JSON.stringify(newcomts);
+        localStorage.setItem("comments",uploadcomt)
+        blogclick(`fullpg_${ind}`)
+    }
+
+   
  }
+//add comments function done
+ 
 blogadmin.addEventListener("click",()=>{
     if (localStorage.getItem("signedin") != null ){
         window.location.href="/myblogs/myblogs.html"
