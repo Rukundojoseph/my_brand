@@ -75,11 +75,13 @@ function addblog(e){
         posttab.classList.remove("press_post")
         if ( (localStorage.getItem("signedin")) == "rkndjoseph@gmail.com" )
         {
-          window.location.href="/blog/blogs.html"    
+          window.location.reload()    
       
           }
           else{
-          window.location.href="/blogs/blog.html"   
+          window.location.reload()    
+
+           
           }  
 
 }
@@ -111,12 +113,7 @@ function deletebg(id){
     total.splice(blogindex,1)
     var newblogs= JSON.stringify(total)
     localStorage.setItem("blogs",newblogs)
-    if ( (localStorage.getItem("signedin")) == "rkndjoseph@gmail.com" ){
-    window.location.href="/blogs/blog.html"    
-    }
-    else{
-    window.location.href="/myblogs/myblogs.html"
-    } 
+    window.location.reload() 
 }
   function editblog(id){
     let blogindex=id.split("_")
@@ -129,4 +126,5 @@ function deletebg(id){
      blogindex= total.indexOf(blog)
     var index= blogindex[1];     
     total.splice(index,1)
+    window.location.reload()  
   }

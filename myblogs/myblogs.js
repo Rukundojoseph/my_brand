@@ -16,7 +16,7 @@ blogs.forEach(element => {
         var index=(blogs.indexOf(element))
         personalblogs.push(element)
         console.log(personalblogs)
-        main.innerHTML=`<div class="blogdc">
+        main.innerHTML+=`<div class="blogdc">
         <div><h1>Blog title:</h1>${element.title}</div>
         <div class="blog_d"><h1>Blog caption:</h1><p>${element.caption}</p></div>
         <div><h1 class="bimage">BLOG IMAGE</h1><img class="blog_image" src="${element.blogimages}" width="200" height="150"/></div>

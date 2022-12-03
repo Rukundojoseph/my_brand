@@ -53,35 +53,41 @@ console.log(`like_${index}`)
 function likethis(id){
     var newindex=id.split("_")
     var ind=newindex[1]    
-  if(localStorage.getItem("likes") == null){
-    localStorage.setItem("likes","[]")
-   var signedinuser=(localStorage.getItem("signedin"))
+    var signedinuser=(localStorage.getItem("signedin"))
     var like={
         "liker": signedinuser,
         "blogid": ind,          
     }
-    var alllikes=JSON.parse(localStorage.getItem("likes"))
-    console.log(alllikes.indexOf(like))
-    if (alllikes.indexOf(like) == -1){        
-   //alllikes.push(like)
-    }
-    else{
-       var remove= alllikes.indexOf(like)
-        alllikes.splice(remove,1)
-    }
+  if(localStorage.getItem("likes") == null){
+    localStorage.setItem("likes","[]")   
+   var alllikes=JSON.parse(localStorage.getItem("likes"))
+    alllikes.push(like)  
    var uploadlike=JSON.stringify(alllikes)
-  //  localStorage.setItem("likes",uploadlike)
+   localStorage.setItem("likes",uploadlike)
     
   }  
-  else{
-    var signedinuser=(localStorage.getItem("signedin"))
-    var like={
-        "liker": signedinuser,
-        "blogid": ind,           
+  else{    
+     var alllikes=JSON.parse(localStorage.getItem("likes"))
+ //   var remove= alllikes.find(element=>{ element.liker == nlike.liker })
+  function getid(){  for(let i=0;i<alllikes.length;i++)
+    {
+        if(alllikes[i].blogid==ind && alllikes[i].liker==signedinuser )
+        {     
+        return i
+        }
+    };}
+    var likei= getid()
+    console.log(likei)
+    console.log(alllikes)
+    if(likei == undefined ){
+    alllikes.push(like)      
     }
-    var alllikes=JSON.parse(localStorage.getItem("likes"))
-   alllikes.push(like)
-   var uploadlike=JSON.stringify(alllikes)
+   else{
+        console.log(likei)     
+       alllikes.splice(likei,1)  
+        likei=-1;
+   }
+   var uploadlike=JSON.stringify(alllikes)   
     localStorage.setItem("likes",uploadlike)
   }
   blogclick(`fullpg_${ind}`)
@@ -95,7 +101,9 @@ function likesnumber(id){
         if(element.blogid==id)
         bloglikes.push(element)
     })
+   // console.log(bloglikes)
           return bloglikes.length
+
 }
 else{
     return 0;
@@ -104,23 +112,25 @@ else{
    
 }
 var count=0;
-function addlike2(id){
-    if ((localStorage.getItem("signedin") != null)&& (count<1)  ){
-    var currentlikes=document.querySelector(`#likesn`).innerHTML;
-    console.log(currentlikes)
-    var newlikes=parseInt(currentlikes)+1
-    document.querySelector(`#likesn`).innerHTML=newlikes
-    count++
-    }
-    else{
-        window.location.href="/signin/signin.html"
-    }
- 
- }
+//function return comments
+function loadcomments(id){
+    comments=JSON.parse(localStorage.getItem("comments"))
+    if (comments != null){
+        var blogcomments=[];
+        comments.forEach(element=>{
+            if(element.blogid==id)
+            bloglikes.push(element)
+        })
+       // console.log(bloglikes)
+              return blogcomments    
+    } 
+}
+//function return comments
 
 
 
- function addcomment(){
+
+function addcomment(){
     var coment_vid=document.querySelector("#comments_print");
     var coment= document.querySelector("#comment").value;
     var user = localStorage.getItem("signedin")

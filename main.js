@@ -40,7 +40,7 @@ if (Password==Password2){
     }    
   });
   if (olduser==null){
-  newuser.push(json);
+  newuser.push(user);
   localStorage.setItem("Users",(JSON.stringify(newuser)));
   window.location.href ="/blogs/blog.html";     
   result.innerHTML= `signed up`
