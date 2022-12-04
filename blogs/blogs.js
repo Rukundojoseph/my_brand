@@ -3,8 +3,6 @@ var blog_exit= document.querySelector("#quit_blog")
 var profile= document.querySelector("#cprofile")
 var blogadmin= document.querySelector("#user_blog")
 
-
-
 blog_exit.addEventListener('click',()=>{
     blog_view.classList.remove('blog_click')
 
@@ -56,6 +54,7 @@ function blogclick(id){
     document.querySelector(`.like_div`).innerHTML=`<img id="like_${index}" src="/images/yellow like.png" onclick="likethis(this.id)"class="icon like" alt="" id="likes" /><p id="likesn" >${nlikes}</p>`  
     var comments = loadcomments(index)   
     var coment_vid=document.querySelector("#comments_print");
+    coment_vid.innerHTML=""
     comments.forEach(element => {
     coment_vid.innerHTML+=`<div class="comment">
     <div class="comment_profile">
@@ -161,13 +160,14 @@ function addcomment(id){
     if (oldcom == null){
         localStorage.setItem("comments","[]")
        var newcomts=JSON.parse(localStorage.getItem("comments"))
-       newcomts.push(comment)
+       newcomts.unshift(comment)
        var uploadcomt =JSON.stringify(newcomts);
        localStorage.setItem("comments",uploadcomt)
+       blogclick(`fullpg_${ind}`)
     }
     else{
         var newcomts=JSON.parse(localStorage.getItem("comments"))
-        newcomts.push(comment)
+        newcomts.unshift(comment)
         var uploadcomt =JSON.stringify(newcomts);
         localStorage.setItem("comments",uploadcomt)
         blogclick(`fullpg_${ind}`)

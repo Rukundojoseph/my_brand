@@ -79,7 +79,8 @@ a{
    border-radius: 50px ;
 }
 .blog_image{
-    width:400px;        
+    width:400px;       
+    max-height: 60%; 
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
@@ -87,7 +88,7 @@ a{
 /*image description*/
 .home_heading{
     color: #F3BE00;
-    font-size: 3vw;
+    font-size: 2vw;
     font-family: 'Inter';
     font-style: normal;
     text-align: center;
@@ -192,6 +193,7 @@ height: 20px;
     top: 0;
     left: 0;
     font-family: 'inter';
+    
 
    display: none;
  
@@ -234,7 +236,7 @@ height: 20px;
     margin: 5px auto;
     font-family: 'Inter';   
     max-height: 40%;
-    overflow: scroll;
+    overflow-y: scroll;
         
 }
 .comment_in{
@@ -275,7 +277,7 @@ margin-top: 2px;
    margin: 10px auto;
 }
 .like_and_comment{
-    background-color: #F3EEEE;
+    
     border-radius: 20px;
 }
 #likesn{
@@ -304,7 +306,7 @@ margin-top: 2px;
 .blog_view_header{
     font-size: 2vw;
     text-align: left;
-    color:#F3BE00;
+    color:#383528;
 }
 .commenti{
     width: 30px;
@@ -417,6 +419,19 @@ height: 40%;
 .comment_div{
     width: 90%;
     height: fit-content;
-    max-height: 50%;
-    overflow: scroll;
+    max-height: 60%;
+    overflow-y:scroll;
 }
+ ::-webkit-scrollbar {
+    width: 10px;
+    color: black;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

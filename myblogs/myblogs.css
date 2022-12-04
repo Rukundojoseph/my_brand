@@ -264,7 +264,7 @@ a{
     .edit_form{
         width: 30%;
         margin: 10% auto;
-        background: #F3EEEE;
+        background: #FFE9C9;
         padding: 5%;
         border-radius: 20px;
     }
@@ -282,4 +282,10 @@ a{
     }
     .press_edit{
         display: unset;
+    }
+    .nobgs{
+        margin: 20%;
+        text-align: center;
+        color: black;
+    
     }

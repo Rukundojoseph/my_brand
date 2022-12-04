@@ -7,10 +7,12 @@ window.addEventListener("load",()=>{
     }
     else{
     var blogs=JSON.parse(localStorage.getItem("blogs"))
+    
     }
 var personalblogs=[]
 var user= localStorage.getItem("signedin")
-if (user!=null){
+
+if (user!=null){    
 blogs.forEach(element => {
     if (element.owner == user){
         var index=(blogs.indexOf(element))
@@ -24,6 +26,7 @@ blogs.forEach(element => {
         <div><h1>CREATOR:</h1>${element.owner}</div>
         </div>`
     }    
+  
 }); 
 }
 else{

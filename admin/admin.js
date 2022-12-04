@@ -109,11 +109,40 @@ function deletebg(id){
       return element
      }
     })
-    blogindex= total.indexOf(blog)
-    total.splice(blogindex,1)
+    function deletelc(id){
+     var comments=JSON.parse(localStorage.getItem("comments"))
+     var likes=JSON.parse(localStorage.getItem("likes"))
+     for(let i=0;i<comments.length;i++){
+      console.log(comments[i].blogid,id)
+      if (comments[i].blogid==id){
+        comments.splice(i,1)
+        console.log("now")
+        i=-1
+      }
+      else{
+        console.log("after")
+        var newcomments = JSON.stringify(comments)
+        localStorage.setItem("comments",newcomments)
+      }
+     }
+     for(let i=0;i<likes.length;i++){
+      if (likes[i].blogid==id){
+       likes.splice(i,1)
+        i=-1
+      }
+      else{
+        var newlikes = JSON.stringify(likes)
+        localStorage.setItem("likes",newlikes)
+      }
+     }
+      
+    }
+deletelc(index)   
+    total.splice(index,1)
     var newblogs= JSON.stringify(total)
     localStorage.setItem("blogs",newblogs)
-    window.location.reload() 
+    //window.location.reload() 
+
 }
   function editblog(id){
     let blogindex=id.split("_")
