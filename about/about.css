@@ -23,6 +23,7 @@ nav{
     font-family: 'Inter';
     font-style: normal;
     position: fixed ;
+    background: white;
     top:0;
 }
 .nav_link{

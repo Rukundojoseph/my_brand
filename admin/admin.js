@@ -141,7 +141,7 @@ deletelc(index)
     total.splice(index,1)
     var newblogs= JSON.stringify(total)
     localStorage.setItem("blogs",newblogs)
-    //window.location.reload() 
+    window.location.reload() 
 
 }
   function editblog(id){

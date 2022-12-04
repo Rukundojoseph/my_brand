@@ -81,7 +81,7 @@ function likethis(id){
    var alllikes=JSON.parse(localStorage.getItem("likes"))
     alllikes.push(like)  
    var uploadlike=JSON.stringify(alllikes)
-   localStorage.setItem("likes",uploadlike)
+   localStorage.setItem("likes",uploadlike)  
     
   }  
   else{    
@@ -98,12 +98,14 @@ function likethis(id){
     console.log(likei)
     console.log(alllikes)
     if(likei == undefined ){
-    alllikes.push(like)      
+    alllikes.push(like)         
     }
    else{
         console.log(likei)     
        alllikes.splice(likei,1)  
         likei=-1;
+   
+
    }
    var uploadlike=JSON.stringify(alllikes)   
     localStorage.setItem("likes",uploadlike)

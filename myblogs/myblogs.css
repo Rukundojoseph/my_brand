@@ -64,11 +64,22 @@ a{
         width: 100%;
     }
     #personal_blogs{
-
         margin-top: 10%;
     }
     .blogdc{
-        width: 80%;
+        width: 60%;
+        height: 20%;
+        font-size: 2vw;
+    }
+    .blog_d p{
+        height: 100px;
+        overflow-y: scroll ;
+        font-size: 3vw;
+        background: #c7b2b2;
+    }
+    .blog_image{
+        width: 100px;
+        height: 100px;
     }
 }
 /* nav css*/
