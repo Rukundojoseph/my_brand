@@ -13,8 +13,10 @@ window.addEventListener('load',()=>{
  
 blogpage_blogs.forEach(element => {
     var index= (blogpage_blogs.indexOf(element))
+    var likes=likesnumber(index)
+    var comments=loadcomments(index).length
     blogdiv.innerHTML+=`
-    <div class="blog">
+    <div id="blog_${index}" class="blog">
         <img src="${element.blogimages}" class="blog_image" />
         <div class="blog_text">
             <h1 id="fullpg_${index}"  class="blog_title" onclick="blogclick(this.id)">${element.title}</h1>
@@ -22,8 +24,8 @@ blogpage_blogs.forEach(element => {
             ${element.caption}
         </p></div>
         <div class="like_comment">
-<div class="blog_like"><img id="like_${index}" src="/images/whitelike.png" class="like_icon" onclick="addlike()"><p class="blog_number" id="likes_${index}" onload="likeload(this.id)"></p></div>
-<div class="blog_comment"><img id="comment_${index}" src="/images/comment.png" class="comment_icon"><p class="blog_number" id="comments"></p></div>
+<div class="blog_like"><img id="like_${index}" src="/images/whitelike.png" class="like_icon" onclick="likethis(this.id)"><p class="blog_number" id="liks_${index}">${likes}</p></div>
+<div class="blog_comment"><img id="comment_${index}" src="/images/comment.png" class="comment_icon"><p class="blog_number" id="cts_${index}">${comments}</p></div>
         </div>
              </div>`
 
@@ -69,9 +71,10 @@ console.log(`like_${index}`)
 }
 //working on likes
 function likethis(id){
-    var newindex=id.split("_")
-    var ind=newindex[1]    
     var signedinuser=(localStorage.getItem("signedin"))
+    if(signedinuser != null ){
+    var newindex=id.split("_")
+    var ind=newindex[1]        
     var like={
         "liker": signedinuser,
         "blogid": ind,          
@@ -110,7 +113,16 @@ function likethis(id){
    var uploadlike=JSON.stringify(alllikes)   
     localStorage.setItem("likes",uploadlike)
   }
+  if(document.querySelector(".blog_click")==null){
+    document.querySelector(`#liks_${ind}`).innerHTML=likesnumber(ind)
+  }
+  else{
   blogclick(`fullpg_${ind}`)
+  }
+}
+else{
+    window.location.href="/signin/signin.html"
+}
 }
 //likes function
 function likesnumber(id){          
@@ -149,10 +161,11 @@ function loadcomments(id){
 
 //add comments function done
 function addcomment(id){
+    var signedinuser = localStorage.getItem("signedin")
+    if(signedinuser!= null){   
     var index=id.split("_")
     var ind =index[1];
-    var coment= document.querySelector("#comment").value;
-    var signedinuser = localStorage.getItem("signedin")
+    var coment= document.querySelector("#comment").value;    
     var comment={
         "commenter": signedinuser,
         "blogid": ind,    
@@ -173,9 +186,13 @@ function addcomment(id){
         var uploadcomt =JSON.stringify(newcomts);
         localStorage.setItem("comments",uploadcomt)
         blogclick(`fullpg_${ind}`)
+        document.querySelector(`#cts_${ind}`).innerHTML=loadcomments(ind).length
     }
 
-   
+}
+else{
+    window.location.href="/signin/signin.html"
+}
  }
 //add comments function done
  

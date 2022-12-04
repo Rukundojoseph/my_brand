@@ -46,31 +46,16 @@ a{
 .names_nav{
     float: left;
 }
-@media (max-width: 1000px){
-    .links{
-        float: unset;
-        height: 45px;
-        width : 100%
-    }
-    .names_nav{
-        display: none;
-    }
-    a{
-        font-size: 3vw;
-    }
+.b_image{
+    width: 20%;
+    height: 20%;
 }
+
 /* nav css*/
 /*image css*/
 
 /*image description*/
 
-table td{
-    padding: 0 5%;
-
-}
-table{
-    width: 100%;
-}
 
 /*image description*/
 .second_nav{
@@ -79,6 +64,7 @@ table{
     height: 100%;
     background:#F3BE00 ;
     font-family: 'Inter';
+    position: fixed;
 }
 .top_profile{
     display: flex;
@@ -92,6 +78,7 @@ table{
     font-size: 1vw;
     width: fit-content;
     margin: 10px auto;
+    
 }
 .admin_add_post{
     background: #F3EEEE;
@@ -142,9 +129,9 @@ outline: none;
     width: 40%;
     border-radius: 5px;
 }
-.admin_table{
-    float: right;
-    width: 60%;
+.table_t{
+    margin-left: 25% ;
+ 
 }
 .post_blog{
     color: white;
@@ -177,10 +164,13 @@ float: right;
     }
 }
 .blogdc{
-margin-top: 5%;
+margin: 5%;
+height: fit-content;
 background-color: #F3EEEE;
 border-radius: 20px ;
 padding: 20px;
+width: 30%;
+
 }
 .delc{       
     float: right;
@@ -189,6 +179,8 @@ padding: 20px;
     width: 40%; 
     z-index: 100;    
     justify-content: space-between;
+    
+  
 }
 .delc label{
     display: flex;
@@ -227,4 +219,56 @@ padding: 20px;
 .press_edit{
     display: unset;
 }
+#blog_show{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.blog_d{
+    
+    height: 100px;
+    overflow-y: scroll;
+    
+}
+@media (max-width: 1000px){
+    .links{
+        float: unset;
+        height: 45px;
+        width : 100%
+    }
+    .names_nav{
+        display: none;
+    }
+    a{
+        font-size: 3vw;
+    }
+  
+    #blog_show{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .b_image{
+        width: 100%;
+        height: 20%;
+    }
+    .blog_d p{
+        height: unset;
+        height: 75%;
+        overflow-y:scroll;
+    }
+    .blogdc{
+        
+        height: 410px;
+        width: 50%;
+       
+    }
+    .delc{
+        float: unset;
+    }
+    
+}
+
 /*edit form */

@@ -24,10 +24,10 @@ blogs.forEach(element => {
          Btable.innerHTML+=`<div class="blogdc">
          <div><h1>Blog title:</h1>${element.title}</div>
          <div class="blog_d"><h1>Blog caption:</h1><p>${element.caption}</p></div>
-         <div><h1 class="bimage">BLOG IMAGE</h1><img src="${element.blogimages}" width="200" height="150"/></div>
-         <div class="delc"><lable>Edit<img id="edit_${index}" onclick="editblog(this.id)" src="/images/edit.png" class="icon"/></lable><lable>delete<img id="blog_${index}" onclick="deletebg(this.id)" src="/images/delete.png" class="icon"/></label></div>
+         <div><h1 class="bimage">BLOG IMAGE</h1><img src="${element.blogimages}" class="b_image"/></div>
          <div><h1>CREATOR:</h1>${element.owner}</div>
          <div><h1>id:</h1>${element.id}</div>
+         <div class="delc"><lable>Edit<img id="edit_${index}" onclick="editblog(this.id)" src="/images/edit.png" class="icon"/></lable><lable>delete<img id="blog_${index}" onclick="deletebg(this.id)" src="/images/delete.png" class="icon"/></label></div>
          </div>`
            
   console.log(element.blogimages)
