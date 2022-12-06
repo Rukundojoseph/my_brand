@@ -20,6 +20,7 @@ if (Password==Password2){
     var newuser=JSON.parse(localStorage.getItem("Users"));    
     newuser.push(user);
     localStorage.setItem("Users",(JSON.stringify(newuser)))   
+    localStorage.setItem("signedin",Username)
     window.location.href ="/blogs/blog.html";     
     result.innerHTML= `signed up`
     } 
@@ -34,14 +35,18 @@ if (Password==Password2){
       "password": Password,
       "passwordconfirm": Password2
   }   
-  var olduser=newuser.forEach(element => {
-    if (element.username==Username){
-      return element;       
+  function getuser(){ 
+    for(let i=0;i<newuser.length;i++) {
+    if (newuser[i].username==Username){
+      return i;       
     }    
-  });
-  if (olduser==null){
+  }};
+  var olduser=getuser()
+  
+  if (olduser== undefined){
   newuser.push(user);
   localStorage.setItem("Users",(JSON.stringify(newuser)));
+  localStorage.setItem("signedin",Username)
   window.location.href ="/blogs/blog.html";     
   result.innerHTML= `signed up`
   }
@@ -85,7 +90,7 @@ function signin(e){
             console.log("loged in")
             console.log(checkac.value)
             if (useraccount.username=="rkndjoseph@gmail.com"){
-            window.location.href ="/admin/admin.html";            
+              window.location.href = "/blogs/blog.html"           
           
            
             }            
@@ -94,8 +99,8 @@ function signin(e){
              window.location.href = "/blogs/blog.html"                        
             }
           }
-          else if (useraccount==null){
-              result.innerHTML= `you have no account <a href=/signup/signup.html>Create accounts</a>`;
+          else if (useraccount.username != Username){
+              result.innerHTML= `you have no account <a href=/signup/signup.html>Create account</a>`;
           }
           else{
             result.innerHTML= `incorrect password`            
@@ -121,3 +126,28 @@ window.addEventListener("load",()=>{
     })    
   }
 })
+
+function getmessage(){
+  var email= document.querySelector()
+  var username = document.querySelector()
+  var message= document.querySelector()
+  var message={
+    "email": email,
+    "username": username,
+     "message": message,
+  } 
+if (localStorage.getitem("messages")==null){
+  localstorage.setItem("messages","[]")
+  var oldmessage= (localStorage.getItem("messages"))
+  oldmessage.push(message)
+  var newmessages= JSON.stringify(oldmessage)
+  localStorage.setItem("messages", newmessages)
+}
+else{
+  var oldmessage= (localStorage.getItem("messages"))
+  oldmessage.push(message)
+  var newmessages= JSON.stringify(oldmessage)
+  localStorage.setItem("messages", newmessages)
+}
+
+}

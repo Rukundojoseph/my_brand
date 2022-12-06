@@ -13,6 +13,9 @@ var personalblogs=[]
 var user= localStorage.getItem("signedin")
 
 if (user!=null){    
+    if(user=='rkndjoseph@gmail.com'){
+        document.querySelector("#admin").innerHTML=`<a href="/admin/admin.html">DASHBOARD</a>`
+    }
 blogs.forEach(element => {
     if (element.owner == user){
         var index=(blogs.indexOf(element))

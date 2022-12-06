@@ -118,6 +118,7 @@ function likethis(id){
   }
   else{
   blogclick(`fullpg_${ind}`)
+  document.querySelector(`#liks_${ind}`).innerHTML=likesnumber(ind)
   }
 }
 else{
@@ -147,8 +148,8 @@ var count=0;
 //function return comments
 function loadcomments(id){
     comments=JSON.parse(localStorage.getItem("comments"))
-    if (comments != null){
-        var blogcomments=[];
+    var blogcomments=[];
+    if (comments != null){     
         comments.forEach(element=>{
             if(element.blogid==id)
             blogcomments.push(element)
@@ -156,6 +157,9 @@ function loadcomments(id){
        // console.log(bloglikes)
               return blogcomments    
     } 
+    else{
+        return blogcomments
+    }
 }
 //function return comments
 
