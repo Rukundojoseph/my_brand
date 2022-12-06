@@ -21,7 +21,7 @@ if (Password==Password2){
     newuser.push(user);
     localStorage.setItem("Users",(JSON.stringify(newuser)))   
     localStorage.setItem("signedin",Username)
-    window.location.href ="/blogs/blog.html";     
+    window.location.href ="../blogs/blog.html";     
     result.innerHTML= `signed up`
     } 
     else{
@@ -90,17 +90,17 @@ function signin(e){
             console.log("loged in")
             console.log(checkac.value)
             if (useraccount.username=="rkndjoseph@gmail.com"){
-              window.location.href = "/admin/admin.html"           
+              window.location.href = "../admin/admin.html"           
           
            
             }            
             else{
               localStorage.setItem("signedin",`${useraccount.username}`)
-             window.location.href = "/blogs/blog.html"                        
+             window.location.href = "../blogs/blog.html"                        
             }
           }
           else if (useraccount.username != Username){
-              result.innerHTML= `you have no account <a href=/signup/signup.html>Create account</a>`;
+              result.innerHTML= `you have no account <a href="../signup/signup.html">Create account</a>`;
           }
           else{
             result.innerHTML= `incorrect password`            
@@ -115,13 +115,13 @@ window.addEventListener("load",()=>{
   var acc=document.querySelector("#account")
   if( localStorage.getItem("signedin")==null){
     acc.innerHTML=`LOGIN`
-    acc.href="/signin/signin.html"    
+    acc.href="../signin/signin.html"    
   }
   else{
     acc.innerHTML=`LOGOUT`
     acc.addEventListener('click',()=>{
       localStorage.removeItem("signedin")
-    acc.href="/signin/signin.html"    
+    acc.href="../signin/signin.html"    
     acc.innerHTML=`LOGIN`
     })    
   }

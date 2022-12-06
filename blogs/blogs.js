@@ -49,18 +49,18 @@ function blogclick(id){
     document.querySelector("#on_user").innerHTML=singleblog.owner;
     document.querySelector("#b_description").innerHTML=singleblog.caption;
     // comment button
-    document.querySelector("#c_button").innerHTML=`<img id="comment_${index}" src="/images/postb.png" onclick="addcomment(this.id)" class="icon commenti">`
+    document.querySelector("#c_button").innerHTML=`<img id="comment_${index}" src="../images/postb.png" onclick="addcomment(this.id)" class="icon commenti">`
     
     //comment button   
    var nlikes = likesnumber(index);
-    document.querySelector(`.like_div`).innerHTML=`<img id="like_${index}" src="/images/yellow like.png" onclick="likethis(this.id)"class="icon like" alt="" id="likes" /><p id="likesn" >${nlikes}</p>`  
+    document.querySelector(`.like_div`).innerHTML=`<img id="like_${index}" src="../images/yellow like.png" onclick="likethis(this.id)"class="icon like" alt="" id="likes" /><p id="likesn" >${nlikes}</p>`  
     var comments = loadcomments(index)   
     var coment_vid=document.querySelector("#comments_print");
     coment_vid.innerHTML=""
     comments.forEach(element => {
     coment_vid.innerHTML+=`<div class="comment">
     <div class="comment_profile">
-        <img src="/images/yellowprofle.png" class="profile icon" alt=""><p>${element.commenter}</p>
+        <img src="../images/yellowprofle.png" class="profile icon" alt=""><p>${element.commenter}</p>
     </div>
     <p>${element.comment}<p></div>`
     
@@ -122,7 +122,7 @@ function likethis(id){
   }
 }
 else{
-    window.location.href="/signin/signin.html"
+    window.location.href="../signin/signin.html"
 }
 }
 //likes function
@@ -195,16 +195,16 @@ function addcomment(id){
 
 }
 else{
-    window.location.href="/signin/signin.html"
+    window.location.href="../signin/signin.html"
 }
  }
 //add comments function done
  
 blogadmin.addEventListener("click",()=>{
     if (localStorage.getItem("signedin") != null ){
-        window.location.href="/myblogs/myblogs.html"
+        window.location.href="../myblogs/myblogs.html"
     }
     else{
-        window.location.href="/signin/signin.html"
+        window.location.href="../signin/signin.html"
     }
 })
