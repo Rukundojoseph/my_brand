@@ -90,7 +90,7 @@ function signin(e){
             console.log("loged in")
             console.log(checkac.value)
             if (useraccount.username=="rkndjoseph@gmail.com"){
-              window.location.href = "/blogs/blog.html"           
+              window.location.href = "/admin/admin.html"           
           
            
             }            
