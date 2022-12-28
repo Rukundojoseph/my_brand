@@ -145,17 +145,7 @@ text-align: center;
     text-align: center;
 }
 
-@media (max-width: 1000px){
-    .image_description{
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-    .description{     
-        width: unset;   
-      margin-left: unset;
-    }
 
-}
 .names_nav{
     float: left;
     margin-left: 2%;
@@ -239,3 +229,26 @@ text-align: center;
      .comments_header{
         margin-bottom: 2%;
      }
+     @media (max-width: 1000px){
+        .image_description{           
+            flex-direction: column;
+            flex-wrap: wrap;
+            
+            justify-content: unset;
+            
+        }
+        .description{     
+            width: unset;
+            
+            width: 100%; 
+          margin-left: unset;
+              }
+              .send_comment, .likes{
+                font-size: 3vw;
+              }
+              .comment_input{
+                width: 80%;
+              }
+
+    
+    }
