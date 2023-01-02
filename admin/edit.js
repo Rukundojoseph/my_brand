@@ -20,7 +20,6 @@ var total=JSON.parse(localStorage.getItem("blogs"));
     
     var allblogs=JSON.parse(localStorage.getItem("blogs"));   
  var total=allblogs[blogindex];
-    //if (total.owner==(localStorage.getItem("signedin"))){
     title.value=total.title;
     caption.value=total.caption    
     var owner= total.owner

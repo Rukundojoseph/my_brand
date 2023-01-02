@@ -1,62 +1,272 @@
 *{
     margin: 0;
     text-decoration: none;
+    box-sizing: border-box;
 }
-
-.nav_bar{
-    margin: 20px;
-    display: flex;
-    flex-direction: row;
-    width: 60%;
-    float: right;
-    justify-content: space-evenly;
-    box-shadow: 0px 0px 4px  rgba(0, 0, 0, 0.795); 
-    border-radius: 10px;     
-    background: #F3BE00;
-}
-.nav_bar ul{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    justify-content: space-evenly;
-    font-size: 2vw;
-    text-decoration: none;    
-}
- a{
-    color: white
-}
- .second_nav{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    position: fixed;
+body{
     background-color: #F3BE00;
-    width : 20%;
-    justify-content: space-evenly;    
- }
- .second_nav ul{
-    width: 100%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    justify-content: space-evenly;
-    font-size: 2vw;
-    text-decoration: none;    
 }
-.second_nav li{
-    width: 60%;
-    background-color: #810a07;
+.main{
+    background-color: white;
+    width: 75%;
+    float: right;
     border-radius: 20px;
-    text-align: center;
-    color: white;
+    padding: 15px;
+    margin-right: 5%;
+    height: 90%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
 }
-.names{
-    position: absolute;
-    top: 0;
+.second_nav{
+    float: left; 
+    height: 100%;
+}
+.second_nav ul{
+    list-style: none;    
+    font-size: 24;
+    margin-top: 10%;    
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;   
+}
+.second_nav li:hover{
+    background-color: rgb(99, 99, 136);
+    padding: 2px 30px;
+ 
+}
+.second_nav li a{
+    display: flex;
+    flex-direction: row;
+}
+.second_nav a:hover{
     color: white;
+ 
+}
+.nav_bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 24;
+}
+.front_panel{    
+    width: 95%;
+    height: 90px;
+    background: url("https://img.freepik.com/free-photo/outdoor-rich-bright-texture-color_1258-140.jpg?size=626&ext=jpg");
+    padding: 10px;
+    border-radius: 10px;
+}
+.front_panel img{
+ width: 80px;
+ height: 80px;
+}
+.blogsc{
+    min-height: 90%;
+    height: fit-content;
+    width: 95%;
+    background-color: rgba(212, 202, 202, 0.589);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 5px;
+    overflow-y: scroll;
+}
+.singleblog{    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 4px ;
+    border-radius: 3px;
+    }
+.singleblog button{
+    height: fit-content;
+}
+.blogs{
+    height: 80%;
+    width: 65%;
+    margin: 5px;
+}
+.total_messages{
+    margin:5px ;
+    background-color: rgba(110, 110, 150, 0.527);
+    border-radius: 10px;
+    padding: 10px;    
+    height: fit-content;
+    width: 300px;
+    text-align: center;    
+}
+.total_blogs{
+    background-color:  rgba(110, 110, 150, 0.527);
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    margin:5px ;
+    text-align: center;
+}
+.user_emails{
+    background-color: yellow;
+    height: 65% ;
+    overflow-y: scroll;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.blogs_title{
+    text-align: center;
+}
+.line{
+    height: 0;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+.front_panel h1{
+    float: left;
+}
+.image_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+}
+.front_panel button{
+    margin: auto;
+    background: rgb(11, 11, 26);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.front_panel button:hover{
+    margin: auto;
+    background: rgb(19, 46, 36);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.text_button{
+    display: flex;
+    flex-direction: column;       
+}
+.bdate{
+    opacity: 0.5;
+}
+.mblogs{
+    height: 80%;
+    width: 100%;
+    margin: 5px;
+}
+.singleblog img{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+.createblog{
+        width: 25%;
+        height: fit-content;
+       padding: 20px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       background-color: #F3BE00;
+       border-radius: 20px;
+       border: 1px solid black;       
+       position: absolute;
+       top: 30%;
+       left: 30%;
+}
+.createblog input,textarea{
+    border: none;
+    outline: none ;
+    border-radius: 5px;
+    padding: 5px;
+    width: 80%;
+}
+.createblog button{
+    margin: auto;
+    background: rgb(11, 11, 26);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.hidden {
+    display: none;
+}
+.opened{
+    background-color: rgb(99, 99, 136);
+    padding: 2px 30px;
+ 
+
+}
+.cancel{    
+    align-self:end ;
+    float: right;
+    
+}
+.b1{
+    margin: auto;
+    background: yellowgreen;
+    color: white;
+    padding: 2 5px;
+    border-radius: 2px;
+    border: none;
+}
+.b2{
+    margin: auto;
+    background: lightcoral;
+    color: white;
+    padding: 2 5px;
+    border-radius: 2px;
+    border: none;
+}
+@media (max-width: 1000px){
+    .second_nav li a h5{
+        display: none;
+    }
+    .second_nav ul{
+        margin: unset;
+    }    
+    .blogs{
+        width: 100%;
+    }
+    .total_blogs,.total_messages{
+        width: unset;
+        width: 100%;
+    }
+    .desc12{
+        display: none;
+    }
+    .totals{
+        display: flex;
+        flex-direction: row;
+    }
+    .main{
+        height: unset;
+        height: fit-content;
+        padding-bottom: 50px;
+    }
+    .second_nav{
+        
+        position: fixed;
+
+    }
+    .names{
+        font-size: 3vw;
+    }
+    .singleblog{
+        font-size: 2vw;
+    }
+    .blogsc{
+        height: fit-content;
+    }
+    .front_panel{
+        font-size: 2vw;
+    }
+    .createblog{
+        width: 60%;
+    }
+    .blogs{
+        height: 60%;
+    }
 }

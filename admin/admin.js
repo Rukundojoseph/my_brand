@@ -22,11 +22,10 @@ blogs.forEach(element => {
     var index=(blogs.indexOf(element))
     console.log(index)   
          Btable.innerHTML+=`<div class="blogdc">
-         <div><h1>Blog title:</h1>${element.title}</div>
-         <div class="blog_d"><h1>Blog caption:</h1><p>${element.caption}</p></div>
-         <div><h1 class="bimage">BLOG IMAGE</h1><img src="${element.blogimages}" class="b_image"/></div>
-         <div><h1>CREATOR:</h1>${element.owner}</div>
-         <div><h1>id:</h1>${element.id}</div>
+         <div><h1>${element.title}</h1></div>
+         <div class="blog_d"><p>${element.caption}</p></div>
+         <div><img src="${element.blogimages}" class="b_image"/></div>         
+         <div><h1>date:</h1>${element.id}</div>
          <div class="delc"><lable>Edit<img id="edit_${index}" onclick="editblog(this.id)" src="/images/edit.png" class="icon"/></lable><lable>delete<img id="blog_${index}" onclick="deletebg(this.id)" src="/images/delete.png" class="icon"/></label></div>
          </div>`
            
@@ -47,8 +46,8 @@ function addblog(e){
     else{    
     var  blogarr=JSON.parse(localStorage.getItem("blogs")) ;
     } 
-     var url=localStorage.getItem("imageurl")
-    localStorage.removeItem("imageurl")      
+     var url= blogimage
+    
     var blog_id=(JSON.parse(localStorage.getItem("blogs"))).length     
     var userid= function getuserid(){
       var signedinuser=localStorage.getItem("signedin")
@@ -85,20 +84,8 @@ function addblog(e){
           }  
 
 }
-const blogimage = document.querySelector("#image-input");
-blogimage.addEventListener("change", function() {
-  const reader = new FileReader();
-   reader.addEventListener("load", () => {
-    const uploaded_image = reader.result;
-   var url=uploaded_image
-   nurl=url
-   console.log(url);
-   localStorage.setItem("imageurl",url)
-  return url
-      })
-      ;
-  reader.readAsDataURL(this.files[0]);  
-});
+
+
 
 function deletebg(id){
     let blogindex=id.split("_")

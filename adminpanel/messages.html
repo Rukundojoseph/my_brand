@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <title>Joseph</title>
+</head>
+<body>
+    <nav class="nav_bar">
+    <ul>
+        <a href="../blogs/blog.html">Rukundo Dashboard</a>
+    </ul>
+    </nav>
+<nav class="second_nav">
+    <div class="names"><h1><a href="../blogs/blog.html">Rukundo</a></h1>
+    <h2>Joseph</h2></div>
+    <ul>
+        <li><a href="/blogs">
+            <i class='bx bxs-dashboard'></i>
+            <h5>Dashboard</h2>
+        </a></li>        
+        <li><a href="messages.html">
+            <i class='bx bx-message-square-dots'></i>
+            <h5>Messages</h5>
+        </a></li>
+        <li><a href="/Privacy">
+            <i class='bx bx-cog' ></i>
+            <h5>Privacy</h5>
+        </a></li>
+        <li><a> 
+            <i class='bx bx-log-out'></i>
+           <h5> Logout</h5>
+        </a></li>
+    </ul>
+</nav>
+<section class="main">
+    <div class="mblogs">
+    <div class="front_panel">
+        <div class="image_header">
+        <div class="text_button"><h1>Messages</h1></div>
+        <img src="../images/profile.png" class="my_profile" alt="profile"></div>        
+    </div>
+    <div class="blogsc">
+        <h1 class="blogs_title">MESSAGES</h1>        
+        <div class="blog_details">
+            <h1><b>we want to work with you</b></h1>
+            <p>Hi rukundo we would like you in our company</p> 
+            <p class="bdate">techenford@tech.com</p>           
+            <p class="bdate">3rd march 2022</p>           
+
+        </div>          
+        
+        <button  onclick="deleteit(this.id)">Delete</button>
+        </div>       
+        </div></div>   
+</section>
+<section class="forms">
+    <div class="createblog hidden" id="delete_blog">
+        <h1 class="cancel" id="cancell" onclick="cancel()"><i class="fas fa-times-circle"></i></h1>
+        <h1>Are you sure you want to delete</h1>
+        <button id="delete_blog" >Yes</button>
+        </div>
+</section>
+<script src="adminpanel.js"></script>
+</body>
+</html>

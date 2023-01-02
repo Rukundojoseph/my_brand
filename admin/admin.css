@@ -83,27 +83,24 @@ a{
     margin-top: 10px;
     font-size: 1vw;
     width: fit-content;
-    margin: 10px auto;
-    
+    margin: 10px auto;    
 }
 .admin_add_post{
     background: #F3EEEE;
-    position: fixed;
+    float: right;
+    display: block;
     width: 25%;
-    top: 40%;
-    left: 40%;
+    margin: 5%;
+    right: 0;
     border-radius: 10px;
     padding: 50px;        
 }
 .fullpage_bpost{
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.25);
     z-index: 100;
     display: none;
-
-
 }
 .press_post{
     display: unset;
@@ -117,16 +114,13 @@ border-radius: 25px;
 height: 40px;
 border: none;
 outline: none;
-
 }
 .blog_submit{
     background: #F3BE00;
     color: white;
     border: none;    
     width: 40%;
-    border-radius: 5px;
-
-    
+    border-radius: 5px;    
 }
 .cancel_btn{
     color: #F3BE00;
@@ -198,15 +192,14 @@ width: 80%;
 }
 /*edit form */
 .edit_blog{
-    position: fixed;
-    background: rgba(0, 0, 0, 0.25);
+    position: fixed;    
     top: 50;
     width: 100%;
     height: 100%;    
     display: none;
 }
 .edit_form{
-    width: 40%;
+    width: 25%;
     margin: 10% auto;
     background: #F3EEEE;
     padding: 5%;
@@ -234,11 +227,9 @@ width: 80%;
     flex-wrap: wrap;
 }
 .blog_d{
-float: right;
-    width: 70%;
+    width: 100%;
     height: 100px;
-    overflow-y: scroll;
-    top: 0;
+        top: 0;
     
 }
 @media (max-width: 1000px){
@@ -288,8 +279,7 @@ float: right;
     flex-direction: column;
     list-style: none;
     justify-content: space-evenly;
-    font-size: 2vw;
-  
+    font-size: 2vw;  
 }
 .second_nav li{
     width: 60%;    
@@ -302,5 +292,20 @@ float: right;
     align-items: center;
 
 }
+.second_nav a{
+    color: white;
+}
+.second_nav a:hover{
+    color: orangered;
+}
 
+.users{
+    width: 80%;
+    float: right;
+    margin: auto;
+}
+.users h1{
+    font-size: 3vw;
+    color: red;
+}
 /*edit form */

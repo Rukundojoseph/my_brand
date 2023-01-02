@@ -41,11 +41,11 @@
     <form action="" onsubmit="addblog()">
         <h1 class="post_title">POST</h1>
         <div>Title</div>
-        <input type="text" id="blog_title" required/>
+        <input type="text" id="blog_title" name="title" />
         <div>add_image</div>
-        <input type="file" class="" id="image-input">
+        <input type="text" class="" id="image-input" name="image">
         <div>caption</div>
-        <input type="text" id="blog_caption" required/>
+        <input type="text" id="blog_caption" name="body"/>
         <div class="submit_cancel">
         <button type="submit" class="blog_submit">post</button>
         <button class="cancel_btn" id="edit_cancel" >cancel</button>
@@ -65,16 +65,17 @@
         <form action="" onsubmit="editblog()">
             <h1 class="post_title">Edit</h1>
             <div>Title</div>
-            <input type="text" id="edit_title" required/>            
+            <input type="text" id="edit_title" />            
             <div>caption</div>
-            <input type="text" width="200" height="200" id="edit_caption" required/>
+            <input type="text" width="200" height="200" id="edit_caption" />
             <div class="edit_submit_cancel">
             <button type="submit" class="blog_submit" id="sub_edit">Edit</button>
             <button class="cancel_btn" id="edit_cancel" >cancel</button>
         </div>
     </div>
  </section>
-     
+   
+
      <script src="admin.js"></script>    
      <script src="edit.js"></script>    
 
