@@ -4,6 +4,7 @@ var Delete = document.querySelector("#remover")
 var creatform = document.querySelector("#create_blog")
 var EditForm = document.querySelector("#edit_blog")
 var DeleteForm = document.querySelector("#delete_blog")
+var DeletemessageForm= document.querySelector(".msgd")
 
 
 
@@ -25,12 +26,16 @@ BlogCreate.addEventListener('click',()=>{
  function deleteit(id){
     DeleteForm.classList.remove("hidden")    
     creatform.classList.add('hidden')
-    EditForm.classList.add('hidden')
+    EditForm.classList.add('hidden')  
+
  }
  function cancel(){    
     creatform.classList.add('hidden')
     EditForm.classList.add('hidden')
-    DeleteForm.classList.add('hidden')    
+    DeleteForm.classList.add('hidden')  
+    creatform.classList.add('hidden')
+
+
     creatform.childNodes.values=""
     EditForm.childNodes.values=""
  }

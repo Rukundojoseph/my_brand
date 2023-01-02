@@ -241,10 +241,11 @@ body{
     border: none;
 }
 
-@media (max-width: 600px){
+@media (max-width: 1000px){
     .opened{
+        width: fit-content;
         border-radius: 50%;  
-        padding: 10px;   
+        padding: 10px;  
 
     }
     .main{
@@ -300,5 +301,13 @@ body{
     }
     .blogs{
         height: 60%;
+    }
+}
+@media (max-width: 400px){
+    .second_nav{
+        font-size: 12;        
+    }
+    .second_nav li{
+        margin-left: -20px;
     }
 }
