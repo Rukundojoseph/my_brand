@@ -29,19 +29,17 @@ var Password= document.querySelector("#password").value
         const adminID="63adb8befb539a066c33adc8"
         console.log(data.token)
         setCookie('token', data.token , 7);
-        // if (data.userID == adminID){
-        //    window.location.href="../adminpanel/admin.html"
-        // }
-        // else{
-        //     window.location.href="../blogs/blog.html"
+        if (data.userID == adminID){
+           window.location.href="../adminpanel/admin.html"
+        }
+        else{
+            window.location.href="../blogs/blog.html"
           
-        // }
+        }
     } )
     .catch(error => console.log(error));
   }
   
-
-
 
 
 function signin(e){    

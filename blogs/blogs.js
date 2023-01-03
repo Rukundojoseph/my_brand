@@ -26,8 +26,6 @@ function getCookie(name) {
 
 
 
-
-
 async function getblogs(){
 try{
 const data = await fetch("https://josephbrand-production.up.railway.app/blogs")
@@ -41,9 +39,6 @@ catch(error){
 
 async function renderblogs(){
     let gotblogs= await getblogs()
-    console.log('blogs:',gotblogs.data.blogs)
-    console.log('message:',gotblogs.message)
-    console.log('total:',gotblogs.data.total)
     var blogpage_blogs = gotblogs.data.blogs 
   
 blogpage_blogs.forEach(element => {
@@ -66,10 +61,6 @@ blogpage_blogs.forEach(element => {
  
     return gotblogs
 }
-
-
-
-
 
 
 window.addEventListener('load',()=>{

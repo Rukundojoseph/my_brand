@@ -12,8 +12,6 @@ const commentinput = document.querySelector("#com")
 
 
 
-
-
 function getCookie(name) {
   const nameEQ = `${name}=`;
   const ca = document.cookie.split(';');

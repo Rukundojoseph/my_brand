@@ -16,6 +16,7 @@ else{
 
 }
 }
+
 function checkmatch(){
     var pass2= document.querySelector("#password2")
     if((pass == pass2)==true){
