@@ -251,7 +251,11 @@ text-align: center;
               }
               .comment_input{
                 width: 80%;
-              }
-
-    
+              }    
+    }
+    .hide{
+        display: none;
+    }
+    .widen{
+        width: 100%;
     }

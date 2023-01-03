@@ -1,7 +1,6 @@
 var blog_view= document.querySelector(".whole_page_view")
 var blog_exit= document.querySelector("#quit_blog")
 var profile= document.querySelector("#cprofile")
-var blogadmin= document.querySelector("#user_blog")
 var blogdiv= document.querySelector(".blogs")
 
 
@@ -86,11 +85,3 @@ async function addcomment(id){
  }
 //add comments function done
  
-blogadmin.addEventListener("click",()=>{
-    if (localStorage.getItem("signedin") != null ){
-        window.location.href="../myblogs/myblogs.html"
-    }
-    else{
-        window.location.href="../signin/signin.html"
-    }
-})
