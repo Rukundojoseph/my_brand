@@ -229,6 +229,9 @@ text-align: center;
      .comments_header{
         margin-bottom: 2%;
      }
+     .comments_header{
+        text-align: center;
+     }
      @media (max-width: 1000px){
         .image_description{           
             flex-direction: column;
