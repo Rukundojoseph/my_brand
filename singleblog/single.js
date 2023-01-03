@@ -6,7 +6,7 @@ const likesc = document.querySelector(".likes")
 const commentdiv = document.querySelector(".comments_display")
 const image = document.querySelector(".image")
 const description = document.querySelector(".description")
-const commentinput = document.querySelector(".comment_input").value
+const commentinput = document.querySelector("#com")
 
 
 
@@ -14,9 +14,20 @@ const commentinput = document.querySelector(".comment_input").value
 
 
 
-
-
-
+function getCookie(name) {
+  const nameEQ = `${name}=`;
+  const ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) === 0) {
+      return c.substring(nameEQ.length, c.length);
+    }
+  }
+  return null;
+}
  
 async function getsingle(){
     try{
@@ -68,7 +79,12 @@ async function getsingle(){
 
 }
 async function  likethis(){    
-  var like = fetch(`https://josephbrand-production.up.railway.app/blogs/${blogId}/like`,{method:"POST"})
+  var like = fetch(`https://josephbrand-production.up.railway.app/blogs/${blogId}/like`,{
+    method:"POST",
+    headers:{
+      'Authorization': `Bearer ${getCookie('token')}`
+    }
+      })
   .then((result)=>{
     if(result.status === 403){
         window.location.href="../signin/signin.html"
@@ -79,20 +95,25 @@ async function  likethis(){
     console.log(error)
   })
 }
-async function  commenton(){      
-  var like = fetch(`https://josephbrand-production.up.railway.app/blogs/${blogId}/like`,
-  {
+async function  commenton(){   
+  var data ={
+    text : commentinput.value
+  }   
+  console.log(data);
+  var like = fetch(`https://josephbrand-production.up.railway.app/blogs/${blogId}/comment`,
+    {
     method:"POST",
-    body: {
-        "text": commentinput
-    }
-
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${getCookie('token')}`
+    }   
 }
     )
   .then((result)=>{
     if(result.status === 403){
         window.location.href="../signin/signin.html"
-    }
+    } 
   }
   )
   .catch((error)=>{

@@ -9,6 +9,24 @@ var blogdiv= document.querySelector(".blogs")
 //     blog_view.classList.remove('blog_click')
 
 // })
+function getCookie(name) {
+  const nameEQ = `${name}=`;
+  const ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) === 0) {
+      return c.substring(nameEQ.length, c.length);
+    }
+  }
+  return null;
+}
+
+
+
+
 
 async function getblogs(){
 try{
@@ -65,7 +83,12 @@ window.addEventListener('load',()=>{
 async function  likethis(id){
     var newid= id.split("_")[1]
     console.log(newid)
-  var like = fetch(`https://josephbrand-production.up.railway.app/blogs/${newid}/like`,{method:"POST"})
+  var like = fetch(`https://josephbrand-production.up.railway.app/blogs/${newid}/like`,{
+    method:"POST",
+    headers: {
+      'Authorization': `Bearer ${getCookie('token')}`
+    }   
+  })
   .then((result)=>{
     if(result.status === 403){
         window.location.href="../signin/signin.html"
@@ -75,6 +98,7 @@ async function  likethis(id){
   .catch((error)=>{
     console.log(error)
   })
+   window.location.reload()
 }
 
 var count=0;

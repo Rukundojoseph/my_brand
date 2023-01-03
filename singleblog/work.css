@@ -201,8 +201,7 @@ text-align: center;
     .send_comment:hover{
         background-color: transparent;
         border: none;
-        color: #F3BE00;
-        font-size: 1.5vw;
+        color: #F3BE00;        
     }
      .comment_profile{
         padding: 5px;
