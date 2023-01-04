@@ -49,7 +49,7 @@ function getCookie(name) {
    }
    }
    async function rendermessages(){
-      let gotmessages= await getmessages()   
+      let gotmessages= await getmessages()  
       
       var messagesp = gotmessages.data
       messagediv.innerHTML=""    
@@ -94,6 +94,18 @@ function getCookie(name) {
       })
       cancel()
     }
+    function setCookie(name, value, expirationDays) {
+      const date = new Date();
+      date.setTime(date.getTime() + (expirationDays * 1));
+      const expires = `expires=${date.toUTCString()}`;
+      document.cookie = `${name}=${value};${expires};path=/`;
+    }
+    
+     function signout(){
+      setCookie("token","" , 1 )
+     window.location.href="../signin/signin.html"   
+    } 
+
     window.addEventListener('load' ,()=>{
       rendermessages()
    })

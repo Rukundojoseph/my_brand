@@ -228,6 +228,17 @@ async function  deleteblog(){
    cancel
  }
 
+ function setCookie(name, value, expirationDays) {
+  const date = new Date();
+  date.setTime(date.getTime() + (expirationDays * 1));
+  const expires = `expires=${date.toUTCString()}`;
+  document.cookie = `${name}=${value};${expires};path=/`;
+}
+
+ function signout(){
+  setCookie("token","" , 1 )
+ window.location.href="../signin/signin.html"   
+} 
    
 
 
