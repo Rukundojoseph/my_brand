@@ -57,7 +57,7 @@ async function getsingle(){
             image.classList.add("hide")
             description.classList.add("widen")
           }
-     comms.forEach(element =>{
+     comms.reverse().forEach(element =>{
         commentdiv.innerHTML+=`
         <div class="one_comment">
                 <div class="comment_profile"><i class="fas fa-user"></i><p>${element.author}</p></div>
@@ -92,6 +92,7 @@ async function  likethis(){
   .catch((error)=>{
     console.log(error)
   })
+  await printelements()
 }
 async function  commenton(){   
   var data ={
@@ -109,6 +110,8 @@ async function  commenton(){
 }
     )
   .then((result)=>{
+    printelements()
+    commentinput.value=""
     if(result.status === 403){
         window.location.href="../signin/signin.html"
     } 
@@ -119,5 +122,5 @@ async function  commenton(){
   })
 }
 window.addEventListener('load',()=>{
-    printelements()
+  printelements()
 })

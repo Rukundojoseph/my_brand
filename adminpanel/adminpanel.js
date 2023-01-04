@@ -6,6 +6,12 @@ var EditForm = document.querySelector("#edit_blog")
 var DeleteForm = document.querySelector("#delete_blog")
 var DeletemessageForm= document.querySelector(".msgd")
 var blogdiv = document.querySelector(".blogsc")
+var totalblogs = document.querySelector("#ttblogs")
+var totalaccounts = document.querySelector("#ttaccounts")
+var usersdiv = document.querySelector(".user_emails")
+var createform=document.querySelector("#create_blog")
+
+
 
 
 
@@ -70,7 +76,8 @@ BlogCreate.addEventListener('click',()=>{
    let gotblogs= await getblogs()   
    var blogpage_blogs = gotblogs.data.blogs  
    blogdiv.innerHTML=""
-blogpage_blogs.forEach(element => {   
+   totalblogs.innerHTML= gotblogs.data.total
+blogpage_blogs.reverse().forEach(element => {   
    blogdiv.innerHTML+=`
    <div class="singleblog"><img src="${element.image}" alt="blog">
    <div class="blog_details">
@@ -85,7 +92,74 @@ blogpage_blogs.forEach(element => {
 }); 
    return gotblogs
 }
+async function getusers(){
+   try{
+   const data = await fetch("https://josephbrand-production.up.railway.app/admin/users",{
+      headers: {
+         'Authorization': `Bearer ${getCookie('token')}`
+      }
+   })   
+   return await data.json()
+   }
+   catch(error){
+    console.log(error)
+   }
+   }
+async function renderusers(){
+      let gotusers= await getusers()   
+      var blogpage_blogs = gotusers.users  
+      usersdiv.innerHTML=""
+      totalaccounts.innerHTML= gotusers.population
+   blogpage_blogs.forEach(element => {   
+      usersdiv.innerHTML+=`
+      <p>${element.email}</p> 
+       `                  
+   }); 
+      return gotusers
+   }
+async function  addblog(){   
+      var data ={
+        title : createform.title.value,
+        image:  createform.image.value,
+        body:  createform.body.value,
+      }   
+      console.log(data);
+      var blog = fetch(`https://josephbrand-production.up.railway.app/admin/blogs/`,
+        {
+        method:"POST",
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${getCookie('token')}`
+        }   
+    }
+        )
+      .then((result)=>{
+        renderblogs()
+        createform.title=""
+        createform.image=""       
+        createform.body=""    
+        if(result.status === 404){
+            window.location.href="../signin/signin.html"
+        } 
+      }
+      )
+      .catch((error)=>{
+        console.log(error)
+      })
+    }
+
+function bloga(e){
+      event.preventDefault();
+      addblog()
+  
+  }
+  
+   
+
+
 
 window.addEventListener('load',()=>{
    renderblogs()
+   renderusers()
 })
