@@ -1,30 +1,37 @@
-var pass = document.querySelector("#password").value
+var signupform= document.querySelector("#signup_form")
+var results= document.querySelector("#result")
 
-function checkpassword(){
-var pass = document.querySelector("#password").value
-var result=document.querySelector("#result");
-    let format=/([a-z]{4,6})([0-9]{2,4})/;
-    console.log(pass)
-if (format.test(pass)==false){
-    console.log("invalid password")
-    result.innerHTML=`password should have 4 letters and 2 numbers`
-    result.classList.add("invalid");
-}    
-else{
-    result.innerHTML=``
-    result.classList.remove("invalid")
-
-}
-}
-
-function checkmatch(){
-    var pass2= document.querySelector("#password2")
-    if((pass == pass2)==true){
-    result.innerHTML=`your password should match`
-    result.classList.add("invalid");
-    }
-    else{
-    result.innerHTML=``
-    result.classList.remove("invalid") 
-    }
-}
+function setCookie(name, value, expirationDays) {
+    const date = new Date();
+    date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value};${expires};path=/`;
+  }
+function signup(e) {
+    event.preventDefault();
+    var Email=  signupform.email.value;
+var Password= signupform.password.value;
+    const data = {email: Email , password: Password};
+  
+    fetch('https://josephbrand-production.up.railway.app/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data =>{       
+        setCookie('token', data.jwt , 7);    
+      
+        if(data.jwt){
+            console.log("relocate")
+            window.location.href="../blogs/blog.html"
+           }
+        if (data.errors.status == 400){
+           results.innerHTML= data.errors.message || data.errors.email || data.errors.password
+        }       
+     
+    } )
+    .catch(error => console.log(error));
+  }

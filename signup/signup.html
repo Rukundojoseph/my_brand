@@ -29,13 +29,12 @@
             <div class="login_title"><b>SIGNUP</b>                
             </div>
             <div class="line"></div>            
-            <form class="login_form" onsubmit="signup()">
+            <form class="login_form" onsubmit="signup()" id="signup_form">
                 <div class="login_section"><div class="input_title"><b>Email</b></div>
-                <input type="email" id="username" class="input_t"  required placeholder="example@gmail.com"/></div>
+                <input type="email" name="email" id="username" class="input_t"   placeholder="example@gmail.com"/></div>
                 <div class="login_section"><div class="input_title"><b>password</b></div>
-                <input type="password" pattern="([a-z]{4,6}[0-9]{2,4})" onchange="checkpassword()" id="password"   class="input_t"  required  placeholder="password"/></div>
+                <input type="password" name="password"   id="password"   class="input_t"  placeholder="password"/></div>
                 <div class="login_section"><div class="input_title"><b>confirm password</b></div>
-                <input type="password" onchange="checkmatch()" id="password2" class="input_t"  required  placeholder="confirm password"/></div>
                     <div><button type="submit" id="login" class="login_submit">SIGNUP</button></div>
                     <div id="result"></div>
                     <div class="signup"><span>Already have and account?</span><a href="/signin/signin.html">signin</a></div>                    
@@ -48,7 +47,7 @@
 
     
      </section>
-    <script src="../main.js"></script>
+    
     <script src="signup.js"></script>
 </body>
 </html>
