@@ -88,7 +88,7 @@ blogpage_blogs.reverse().forEach(element => {
        <p class="bdate">${element.date.split("T")[0]}</p>           
    </div>            
    <p><i class="fas fa-thumbs-up"></i>${element.likes.length}</p> <p><i class="fas fa-comment"></i>${element.comments.length}</p>
-   <button class="b1" id="edit_${element._id}" onclick="editit(this.id);getid(this.id)">Edit</button><button class="b2" onclick="deleteit(this.id)">Delete</button>
+   <button class="b1" id="edit_${element._id}" onclick="editit(this.id);getid(this.id)">Edit</button><button class="b2" id="delete_${element._id}" onclick="deleteit(this.id);getid(this.id)">Delete</button>
    </div> `        
        
 }); 
@@ -154,6 +154,7 @@ async function  addblog(){
 function bloga(e){
       event.preventDefault();
       addblog()
+      cancel()
   
   }
   var usageid;
@@ -198,9 +199,30 @@ async function  editblog(){
    event.preventDefault();
    console.log(usageid)
    editblog()
-
+   cancel()
 }
 
+async function  deleteblog(){  
+   var blog = fetch(`https://josephbrand-production.up.railway.app/admin/blogs/${usageid}`,
+     {
+     method:"DELETE",    
+     headers: {      
+       'Authorization': `Bearer ${getCookie('token')}`
+     }   
+ }
+     )
+   .then((result)=>{
+     renderblogs()    
+     if(result.status === 404){
+         window.location.href="../signin/signin.html"
+     } 
+   }
+   )
+   .catch((error)=>{
+     console.log(error)
+   })
+   cancel
+ }
 
    
 
