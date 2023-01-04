@@ -44,22 +44,22 @@
         <div class="text_button"><h1>Messages</h1></div>
         <img src="../images/profile.png" class="my_profile" alt="profile"></div>        
     </div>
-    <div class="blogsc">
-        <h1 class="blogs_title">MESSAGES</h1>        
+    <h1 class="blogs_title">MESSAGES</h1>
+    <div class="blogsc">               
         <div class="blog_details">
             <h1><b>we want to work with you</b></h1>
             <p>Hi rukundo we would like you in our company</p> 
             <p class="bdate">techenford@tech.com</p>           
-            <p class="bdate">3rd march 2022</p>           
+            <p class="bdate">3rd march 2022</p>          
 
         </div>          
         
-        <button  onclick="deleteit(this.id)" class="b2">Delete</button>
+       
         </div>       
         </div></div>   
 </section>
 <section class="forms">
-    <div class="createblog hidden msgd" id="delete_blog">
+    <div class="createblog hidden msgd" id="delete_blog" onclick="mdelete()">
         <h1 class="cancel" id="cancell" onclick="cancel()"><i class="fas fa-times-circle"></i></h1>
         <h1>Are you sure you want to delete</h1>
         <button id="delete_blog" >Yes</button>

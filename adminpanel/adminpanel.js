@@ -68,6 +68,10 @@ BlogCreate.addEventListener('click',()=>{
          'Authorization': `Bearer ${getCookie('token')}`
       }
    })   
+   if(data.status== 403){
+    window.location.href="../signin/signin.html"
+
+   }
    return await data.json()
    }
    catch(error){

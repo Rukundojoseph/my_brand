@@ -22,7 +22,7 @@ var Password= signupform.password.value;
     })
     .then(response => response.json())
     .then(data =>{       
-        setCookie('token', data.jwt , 7);    
+        setCookie('token', data.jwt , 7);
       
         if(data.jwt){
             console.log("relocate")
