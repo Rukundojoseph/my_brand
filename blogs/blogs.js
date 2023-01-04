@@ -60,8 +60,8 @@ blogpage_blogs.forEach(element => {
             ${nbody}..
         </p></div>
         <div class="like_comment">
-<div class="blog_like"><img id="like_${element._id}" src="/images/whitelike.png" class="like_icon" onclick="likethis(this.id)"><p class="blog_number" id="liks_${element._id}">${element.likes.length}</p></div>
-<div class="blog_comment"><img id="comment_${element._id}" src="/images/comment.png" class="comment_icon"><p class="blog_number" id="cts_${element._id}">${element.comments.length}</p></div>
+<div class="blog_like"><img id="like_${element._id}" src="../images/whitelike.png" class="like_icon" onclick="likethis(this.id)"><p class="blog_number" id="liks_${element._id}">${element.likes.length}</p></div>
+<div class="blog_comment"><img id="comment_${element._id}" src="../images/comment.png" class="comment_icon"><p class="blog_number" id="cts_${element._id}">${element.comments.length}</p></div>
         </div>
              </div>`        
         
