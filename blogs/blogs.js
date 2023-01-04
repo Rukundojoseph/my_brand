@@ -42,13 +42,22 @@ async function renderblogs(){
     var blogpage_blogs = gotblogs.data.blogs 
   
 blogpage_blogs.forEach(element => {
+  
+  let nbody= element.body.split(" ").slice(0,12).join(" ")
+  let ntitle= element.title.split("").slice(0,25).join("")
+  if(ntitle != element.title){
+    ntitle=`${ntitle}..`
+  }  
+  if(nbody != element.body){
+    nbody=`${nbody}..`
+  }  
     blogdiv.innerHTML+=`
     <div id="blog_${element._id}" class="blog">
         <img src="${element.image}" class="blog_image" />
         <div class="blog_text">
-           <a href="../singleblog/single.html?id=${element._id}"> <h1 id="fullpg_${element._id}"  class="blog_title" >${element.title}</h1></a>
+           <a href="../singleblog/single.html?id=${element._id}"> <h1 id="fullpg_${element._id}"  class="blog_title" >${ntitle}</h1></a>
             <p class="blog_description">
-            ${element.body}
+            ${nbody}..
         </p></div>
         <div class="like_comment">
 <div class="blog_like"><img id="like_${element._id}" src="/images/whitelike.png" class="like_icon" onclick="likethis(this.id)"><p class="blog_number" id="liks_${element._id}">${element.likes.length}</p></div>
