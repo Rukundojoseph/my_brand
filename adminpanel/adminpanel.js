@@ -10,6 +10,8 @@ var totalblogs = document.querySelector("#ttblogs")
 var totalaccounts = document.querySelector("#ttaccounts")
 var usersdiv = document.querySelector(".user_emails")
 var createform=document.querySelector("#create_blog")
+var editform=document.querySelector("#edit_blog")
+
 
 
 
@@ -86,7 +88,7 @@ blogpage_blogs.reverse().forEach(element => {
        <p class="bdate">${element.date.split("T")[0]}</p>           
    </div>            
    <p><i class="fas fa-thumbs-up"></i>${element.likes.length}</p> <p><i class="fas fa-comment"></i>${element.comments.length}</p>
-   <button class="b1" onclick="editit(this.id)">Edit</button><button class="b2" onclick="deleteit(this.id)">Delete</button>
+   <button class="b1" id="edit_${element._id}" onclick="editit(this.id);getid(this.id)">Edit</button><button class="b2" onclick="deleteit(this.id)">Delete</button>
    </div> `        
        
 }); 
@@ -117,7 +119,7 @@ async function renderusers(){
    }); 
       return gotusers
    }
-async function  addblog(){   
+async function  addblog(){
       var data ={
         title : createform.title.value,
         image:  createform.image.value,
@@ -154,7 +156,52 @@ function bloga(e){
       addblog()
   
   }
-  
+  var usageid;
+function getid(id){
+   usageid= id.split("_")[1]
+   return usageid
+   
+  }
+
+async function  editblog(){
+   var data ={
+     title : editform.title.value,
+     image:  editform.image.value,
+     body:  editform.body.value,
+   }   
+   console.log(data);
+   var blog = fetch(`https://josephbrand-production.up.railway.app/admin/blogs/${usageid}`,
+     {
+     method:"PATCH",
+     body: JSON.stringify(data),
+     headers: {
+       'Content-Type': 'application/json',
+       'Authorization': `Bearer ${getCookie('token')}`
+     }   
+ }
+     )
+   .then((result)=>{
+     renderblogs()
+     createform.title=""
+     createform.image=""       
+     createform.body=""    
+     if(result.status === 404){
+         window.location.href="../signin/signin.html"
+     } 
+   }
+   )
+   .catch((error)=>{
+     console.log(error)
+   })
+ }
+ function bloge(e){
+   event.preventDefault();
+   console.log(usageid)
+   editblog()
+
+}
+
+
    
 
 
