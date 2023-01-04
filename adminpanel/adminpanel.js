@@ -82,17 +82,26 @@ BlogCreate.addEventListener('click',()=>{
    let gotblogs= await getblogs()   
    var blogpage_blogs = gotblogs.data.blogs  
    blogdiv.innerHTML=""
-   totalblogs.innerHTML= gotblogs.data.total
-blogpage_blogs.reverse().forEach(element => {   
+   totalblogs.innerHTML= gotblogs.data.total   
+blogpage_blogs.reverse().forEach(element => {
+  let ntitle= element.title.split("").slice(0,25).join("")
+  let nbody= element.body.split(" ").slice(0,8).join(" ")
+ 
+  if(ntitle != element.title){
+    ntitle=`${ntitle}..`
+  }  
+  if(nbody != element.body){
+    nbody=`${nbody}..`
+  }  
    blogdiv.innerHTML+=`
    <div class="singleblog"><img src="${element.image}" alt="blog">
    <div class="blog_details">
-       <h1><b>${element.title}</b></h1>
-       <p class="desc12">${element.body}</p> 
+       <h1><b>${ntitle}</b></h1>
+       <p class="desc12">${nbody}</p> 
        <p class="bdate">${element.date.split("T")[0]}</p>           
    </div>            
    <p><i class="fas fa-thumbs-up"></i>${element.likes.length}</p> <p><i class="fas fa-comment"></i>${element.comments.length}</p>
-   <button class="b1" id="edit_${element._id}" onclick="editit(this.id);getid(this.id)">Edit</button><button class="b2" id="delete_${element._id}" onclick="deleteit(this.id);getid(this.id)">Delete</button>
+   <div><button class="b1" id="edit_${element._id}" onclick="editit(this.id);getid(this.id)">Edit</button><button class="b2" id="delete_${element._id}" onclick="deleteit(this.id);getid(this.id)">Delete</button></div>
    </div> `        
        
 }); 
