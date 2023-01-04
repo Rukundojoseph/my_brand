@@ -45,6 +45,7 @@ a{
 .names_nav{
     float: left;
 }
+
 @media (max-width: 1000px){
     .links{
         float: unset;
@@ -71,9 +72,12 @@ a{
     float: left ;
    border-radius: 50px ;
 }
-.imagediv img{
-    max-width:100%;       
-   
+.image{
+  max-width:500px;       
+   min-width: 300px;
+}
+.imagediv{
+    width: auto;
 }
 /*image css*/
 /*image description*/
@@ -232,6 +236,10 @@ text-align: center;
         text-align: center;
      }
      @media (max-width: 1000px){
+        .image{
+            min-width: unset;
+            max-width: 100%;
+        }
         .image_description{           
             flex-direction: column;
             flex-wrap: wrap;
@@ -258,3 +266,4 @@ text-align: center;
     .widen{
         width: 100%;
     }
+    
