@@ -40,7 +40,7 @@ catch(error){
 async function renderblogs(){
     let gotblogs= await getblogs()
     var blogpage_blogs = gotblogs.data.blogs 
-  
+    blogdiv.innerHTML=""
 blogpage_blogs.forEach(element => {
   
   let nbody= element.body.split(" ").slice(0,12).join(" ")
@@ -89,16 +89,20 @@ async function  likethis(id){
       'Authorization': `Bearer ${getCookie('token')}`
     }   
   })
-  .then((result)=>{
-    if(result.status === 403){
-        window.location.href="../signin/signin.html"
-    }
+  .then(result=> result.json())
+  .then((data)=>{   
+    //
+    if(data.message ==  "logged in successfully"){
+      window.location.href="../signin/signin.html"
   }
+  renderblogs()
+
+    //
+}
   )
   .catch((error)=>{
     console.log(error)
-  })
-   window.location.reload()
+  })   
 }
 
 var count=0;

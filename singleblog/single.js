@@ -40,9 +40,7 @@ async function getsingle(){
 
  async function printelements(){
     const blog = await getsingle()
-    try{
-        console.log("title",blog)
-        console.log("text",blog.data.text)
+    try{        
         title.innerHTML=blog.data.title;
         mainbody.innerHTML=blog.data.text;
         likesc.innerHTML=`<i class="fas fa-thumbs-up" id="like_${blogId}" onclick="likethis()"></i><p id="tlikes">${(blog.data.likes).length}</p>`
@@ -83,12 +81,16 @@ async function  likethis(){
       'Authorization': `Bearer ${getCookie('token')}`
     }
       })
-  .then((result)=>{
-    if(result.status === 403){
-        window.location.href="../signin/signin.html"
+      .then(result=> result.json())
+      .then((data)=>{   
+        //
+if(data.message ==  "logged in successfully"){
+          window.location.href="../signin/signin.html"
+      }
+      renderblogs()
+         //
     }
-  }
-  )
+      )
   .catch((error)=>{
     console.log(error)
   })
@@ -97,8 +99,7 @@ async function  likethis(){
 async function  commenton(){   
   var data ={
     text : commentinput.value
-  }   
-  console.log(data);
+  }    
   var like = fetch(`https://josephbrand-production.up.railway.app/blogs/${blogId}/comment`,
     {
     method:"POST",
@@ -109,14 +110,17 @@ async function  commenton(){
     }   
 }
     )
-  .then((result)=>{
-    printelements()
-    commentinput.value=""
-    if(result.status === 403){
+    .then(result=> result.json())
+    .then((data)=>{   
+      //
+      if(data.message ==  "logged in successfully"){
         window.location.href="../signin/signin.html"
-    } 
+    }
+    renderblogs()
+  
+      //
   }
-  )
+    )
   .catch((error)=>{
     console.log(error)
   })
