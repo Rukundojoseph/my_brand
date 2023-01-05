@@ -58,6 +58,9 @@ a{
     a{
         font-size: 3vw;
     }
+    .signup span{
+        font-size: 3vw;
+    }
 }
 /* nav css*/
 /*image css*/
@@ -94,7 +97,7 @@ a{
 }
 .login_main{    
     width: 25%;
-    height: 350px;
+    height: fit-content;
     margin: auto;
     font-family: 'Inter';
     font-style: normal ;

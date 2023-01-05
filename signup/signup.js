@@ -21,11 +21,9 @@ var Password= signupform.password.value;
       body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(data =>{       
-        setCookie('token', data.jwt , 7);
-      
-        if(data.jwt){
-            console.log("relocate")
+    .then(data =>{    
+         if(data.jwt){            
+            setCookie('token', data.jwt , 7);
             window.location.href="../blogs/blog.html"
            }
         if (data.errors.status == 400){

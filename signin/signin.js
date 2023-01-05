@@ -1,5 +1,5 @@
 
-var result=document.querySelector("#result")
+var results=document.querySelector("#result")
 
 function setCookie(name, value, expirationDays) {
     const date = new Date();
@@ -28,11 +28,17 @@ var Password= document.querySelector("#password").value
     .then(data =>{
         const adminID="63adb8befb539a066c33adc8"
         console.log(data.token)
-        setCookie('token', data.token , 7);
-        if (data.userID == adminID){
+        
+        if (data.errors){
+          results.innerHTML= data.errors.message || data.errors.email || data.errors.password
+          return
+       }  
+         if (data.userID == adminID){
+          setCookie('token', data.token , 3);
            window.location.href="../adminpanel/admin.html"
         }
         else{
+          setCookie('token', data.token , 3);
             window.location.href="../blogs/blog.html"
           
         }
