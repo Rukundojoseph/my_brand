@@ -190,12 +190,20 @@ text-align: center;
         flex-direction: column;
 
     }
-    .likes , .comment_profile{
+    .likes {
         display: flex;
         flex-direction: row;
         align-items: center;
         font-size: 1.5vw;           
 
+    }
+     .comment_profile{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+                    }
+    .comment_profile p{
+        font-size: 14;
     }
     .send_comment{
         background-color: transparent;
@@ -266,4 +274,8 @@ text-align: center;
     .widen{
         width: 100%;
     }
-    
+    .line{
+        height: 0;
+        width: 100%;
+        border-bottom: 1px solid black;
+    }

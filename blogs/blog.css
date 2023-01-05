@@ -273,6 +273,8 @@ margin-top: 2px;
     flex-direction: row;
     align-items: center;
     color:#F3BE00;
+    display: none;
+    
 }
 .comment_div{
    width: 80%;

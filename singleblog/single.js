@@ -63,7 +63,7 @@ async function getsingle(){
                     <p>${element.body}</p>
                     <p class="comment_date">${element.date.split("T")[0]}</p>
                 </div>
-            </div>        
+            </div></div><div class="line"></div>
         `                
      });   
 
